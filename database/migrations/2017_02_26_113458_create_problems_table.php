@@ -17,7 +17,7 @@ class CreateProblemsTable extends Migration
           $table->increments('id');
           $table->string('title');
           $table->mediumText('description');
-          $table->string('image_path');
+          $table->string('image_path')->nullable();
           $table->char('level', 1);
           $table->unsignedTinyInteger('stage');
           $table->tinyInteger('score');

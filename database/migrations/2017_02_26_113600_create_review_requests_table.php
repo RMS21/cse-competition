@@ -14,10 +14,16 @@ class CreateReviewRequestsTable extends Migration
     public function up()
     {
         Schema::create('review_requests', function (Blueprint $table) {
+          $table->engine = "InnoDB";
           $table->unsignedInteger('team_id');
           $table->unsignedInteger('problem_id');
           $table->unsignedTinyInteger('state');
-          $table->timestamps();  
+          $table->timestamps();
+        });
+
+        Schema::table('review_requests', function ($table) {
+          $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
+          $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
         });
     }
 

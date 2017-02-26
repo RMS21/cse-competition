@@ -18,6 +18,11 @@ class CreateBuyProblemsTable extends Migration
           $table->unsignedInteger('team_id');
           $table->timestamps();
         });
+
+        Schema::table('buy_problems', function ($table) {
+          $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
+          $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+        });
     }
 
     /**
