@@ -14,7 +14,7 @@
 Route::get('/', [
   'uses' => 'TeamController@getTeamLogin'
 ]);
-
+  
 Route::post('/', [
   'uses' => 'TeamController@postTeamLogin',
   'as' => 'post_team_login'

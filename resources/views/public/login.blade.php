@@ -24,8 +24,13 @@
     </style>
   </head>
   <body>
+    @if(count($errors) > 0)
+      @foreach($errors->all() as $error)
+        {{ $error }}
+      @endforeach
+    @endif
     <form action="{{ route('post_team_login') }}" method="post">
-        <label>Team Name</label>
+        <label>TeamName</label>
         <input type="text" name="name">
         <br>
         <label>Password</label>

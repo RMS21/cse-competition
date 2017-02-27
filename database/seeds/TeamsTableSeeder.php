@@ -17,5 +17,13 @@ class TeamsTableSeeder extends Seeder
         $team->password = bcrypt("admin");
         $team->role = "admin";
         $team->save();
+
+        $team1 = new  Team();
+        $team1->name = "team";
+        $team1->password = bcrypt("team");
+        $team1->role = "member";
+        $team1->score = "100";
+        $team1->level = "A";
+        $team1->save();
     }
 }
