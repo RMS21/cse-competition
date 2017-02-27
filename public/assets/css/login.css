@@ -1,0 +1,70 @@
+@font-face{
+    font-family: IRANSans ;
+    font-style: normal ;
+    font-weight: normal;
+    src:url("../fonts/irsans.ttf");
+}
+html{
+    height: 100% ;
+}
+*:not(.material-icons, .glyphicon) {
+    font-family: IRANSans !important;
+}
+
+body{
+    background-color: #FAFAFA;
+}
+.card-signup{
+    margin-top:20%;
+}
+h1{
+    font-size: 25px;
+    line-height: 12px;
+}
+.header-primary{
+    background: #BA68C8 !important;
+}
+
+.title-login{
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+    padding-bottom: 0 ;
+}
+.title-login img{
+    width: 100px;
+    padding-bottom: 0;
+    margin: 10px 0 ;
+}
+.input-group-addon > img , .input-group-addon > i {
+    width:25px ;
+}
+.field-checkbox{
+    direction: rtl !important;
+    margin:5% 0 ;
+}
+.login-form{
+    margin-top: 10%;
+    border: 2px solid #ccc;
+    border-radius:10px;
+    background: #ffffff;
+    opacity:0.85;
+    z-index: 99;
+}
+#login{
+    border-radius: 10px;
+    background-color:#9C27B0;
+    color:#fff;
+    transition: 0.69s;
+    width:50% ;
+    margin-left: 25% ;
+    background-image:linear-gradient(#fff,#fff) !important;
+}
+#login:hover{
+    background:#8E24AA !important;
+}
+
+
+
+
