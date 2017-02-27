@@ -14,17 +14,12 @@
 Route::get('/', [
   'uses' => 'TeamController@getTeamLogin'
 ]);
-  
+
 Route::post('/', [
   'uses' => 'TeamController@postTeamLogin',
   'as' => 'post_team_login'
 ]);
 
 Route::group(['middleware' => 'auth'], function(){
-
-  Route::get('/waiting', [
-    'uses' => 'TeamController@getWaiting',
-    'as' => 'get_waiting'
-  ]);
 
 });
