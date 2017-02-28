@@ -17,10 +17,5 @@ class GameStatusSeeder extends Seeder
         $game_status->is_started = 1;
         $game_status->save();
 
-
-        // $game_status1 = new GameStatus();
-        // $game_status1->stage = 2;
-        // $game_status1->is_started = 1;
-        // $game_status1->save();
     }
 }

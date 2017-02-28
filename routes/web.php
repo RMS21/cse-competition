@@ -12,7 +12,8 @@
 */
 
 Route::get('/', [
-  'uses' => 'TeamController@getTeamLogin'
+  'uses' => 'TeamController@getTeamLogin',
+  'as' => 'get_team_login'
 ]);
 
 Route::post('/', [
@@ -21,5 +22,10 @@ Route::post('/', [
 ]);
 
 Route::group(['middleware' => 'auth'], function(){
+
+  Route::get('/home', [
+    'uses' => 'HomeController@getHome',
+    'as' => 'get_home'
+  ]);
 
 });

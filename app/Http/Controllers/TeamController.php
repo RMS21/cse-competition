@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Team;
-use App\GameStatus;
 
 class TeamController extends Controller{
 
     public function getTeamLogin(){
+
+      if(Auth::check()){
+        return redirect()->route('get_home');
+      }
+
       return view('public.login');
     }
 
@@ -30,14 +34,7 @@ class TeamController extends Controller{
         return "Admin";
       }
       else{
-         //checking if game started or not
-         $last_game_status = GameStatus::orderBy('created_at', 'desc')->first();
-         if($last_game_status->is_started){
-            return view('user.home');
-         }
-         else{
-           return view('user.waiting');
-         }
+        return redirect()->route('get_home');
       }
     }
 
