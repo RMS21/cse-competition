@@ -64,3 +64,11 @@ h1{
 #login:hover{
     background:#8E24AA !important;
 }
+#register{
+    text-align: center;
+    color:#8E24AA !important;
+    margin-bottom: 10px;
+}
+#register a {
+    text-decoration: none;
+}

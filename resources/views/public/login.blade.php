@@ -55,7 +55,11 @@
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 </div>
                             </div>
+                            <div id="register">
+                                <a href="register.html">ثبت نام</a>
+                            </div>    
                         </form>
+                    </div>
                 </div>
             </div>
         </div>

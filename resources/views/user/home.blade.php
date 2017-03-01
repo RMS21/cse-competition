@@ -25,7 +25,10 @@
     <body>
         <div class="container-fluid">
             <div class="row navbar-information">
-                <div class="col-md-4">
+                <div class="col-md-1 logo">
+                    <img src="assets/img/logo1.png" alt="logo">
+                </div>
+                <div class="col-md-3">
                     <div class="group-information">
                         <span class="group-property">گروه</span>
                         <span class="value-property">{{ $team->name}}</span>
@@ -49,9 +52,11 @@
                         <span class="value-property">{{ $team_members }}</span>
                     </div>
                 </div>
-                <div class="col-md-offset-2 col-md-1 logo">
-                    <img src="assets/img/logo1.png" alt="logo">
-                </div>
+                <div class="col-md-1 col-md-offset-2">
+                    <a href="" data-toggle="modal" data-target="#logout">
+                        <span class="glyphicon glyphicon-off"></span>
+                    </a>
+                </div> 
             </div>
             <div class="container">
                 <div class="row bs-wizard" style="border-bottom:0;">
