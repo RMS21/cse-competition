@@ -38,4 +38,8 @@ class TeamController extends Controller{
       }
     }
 
+    public function getLogout(){
+      Auth::logout();
+    }
+
 }

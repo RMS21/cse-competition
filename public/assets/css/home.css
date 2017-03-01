@@ -115,7 +115,7 @@
     .header-primary span{
         font-size: 18px !important;
     }
-    .content + button {
+    .content + a {
         border-radius: 10px;
         background-color:#8E24AA !important;
         color:#fff !important;

@@ -21,11 +21,21 @@ Route::post('/', [
   'as' => 'post_team_login'
 ]);
 
+Rotue::post('/', [
+    'uses' => 'TeamControllergetLogout',
+    'as' => 'get_team_logout'
+]);
+
 Route::group(['middleware' => 'auth'], function(){
 
   Route::get('/home', [
     'uses' => 'HomeController@getHome',
     'as' => 'get_home'
+  ]);
+
+  Route::get('/buy/{problem_id}', [
+    'uses' => 'HomeController@getBuyProblem',
+    'as' => 'get_buy_problem'
   ]);
 
 });

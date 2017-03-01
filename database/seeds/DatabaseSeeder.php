@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(GameStatusSeeder::class);
         // $this->call(TeamsTableSeeder::class);
         // $this->call(ProblemSeeder::class);
+        // $this->call(BuyProblemsSeeder::class);
+        // $this->call(ReviewRequestsSeeder::class);
         $this->call(UserTableSeeder::class);
     }
 }

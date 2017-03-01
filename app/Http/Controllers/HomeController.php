@@ -9,6 +9,7 @@ use App\GameStatus;
 use App\User;
 use App\Team;
 use App\Problem;
+use App\BuyProblem;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,7 @@ class HomeController extends Controller
       $team_name = Auth::user()->name;
       $team = Team::where('name', '=', $team_name)->firstOrFail();
 
-      //checking if game started or not
+      //checking last game status
       $last_game_status = GameStatus::orderBy('created_at', 'desc')->first();
       if(!is_null($last_game_status)){
         if($last_game_status->is_started){
@@ -43,5 +44,40 @@ class HomeController extends Controller
 
     }
 
+    public function getBuyProblem($problem_id){
+
+      if(!Auth::check()){
+        return redirect()->route('get_team_login');
+      }
+
+      $problem = Problem::find($problem_id);
+
+      //cheching if the problem does not exists
+      if(is_null($problem)){
+        return redirect()->back();
+      }
+
+      //checking if requested problem is not belong to this stage
+      $last_game_status = GameStatus::orderBy('created_at', 'desc')->first();
+      if($problem->stage !== $last_game_status->stage){
+        return redirect()->back();
+      }
+
+      //cheching if requested problems does not belong to team's level
+      if(abs(ord($problem->level) - ord(Auth::user()->level) > 2)){
+        return redirect()->back();
+      }
+
+      $new_buyed_problem = new BuyProblem();
+      $new_buyed_problem->problem_id = $problem_id;
+      $new_buyed_problem->team_id = Auth::user()->id;
+      $new_buyed_problem->save();
+
+      $team_score = Auth::user()->score - $problem->score;
+      Team::where('id', '=', Auth::user()->id)->update(['score' => $team_score]);
+
+      return "Show Problem";
+
+    }
 
 }

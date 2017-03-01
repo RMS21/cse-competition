@@ -1,3 +1,7 @@
+@php
+  use App\BuyProblem;
+  use App\ReviewRequest;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -101,11 +105,29 @@
                                 </div>
                                 <div>
                                     <span>وضعیت سوال : </span>
-                                    <span>درست</span>
-                                    <i class="glyphicon glyphicon-ok"></i>
+                                    @php
+                                      $problem_state = ReviewRequest::where('team_id', '=', $team->id)->where('problem_id', '=', $problem->id)->first();
+                                      $problem_state = is_null($problem_state) ? 0 : $problem_state->state;
+                                    @endphp
+                                    @if($problem_state == 0)
+                                      <span>‍پاسخ داده نشده</span>
+                                      <i class="glyphicon glyphicon-pencil"></i>
+                                    @endif
+                                    @if($problem_state == 1)
+                                      <span>در حال بررسی/span>
+                                      <i class="glyphicon glyphicon-retweet"></i>
+                                    @endif
+                                    @if($problem_state == 2)
+                                      <span>درست</span>
+                                      <i class="glyphicon glyphicon-ok"></i>
+                                    @endif
+                                    @if($problem_state == 3)
+                                      <span>غلط</span>
+                                      <i class="glyphicon glyphicon-remove"></i>
+                                    @endif
                                 </div>
                             </div>
-                            <button class="btn btn-default">خرید</button>
+                            <a href="{{ route('get_buy_problem', ['problem_id' => $problem->id]) }}" class="btn btn-default {{ BuyProblem::where('team_id', '=', $team->id)->where('problem_id', '=', $problem->id)->exists() ? 'disabled' : ''}}">خرید</a>
                         </div>
                     </div>
                 </div>
