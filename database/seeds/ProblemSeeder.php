@@ -13,7 +13,7 @@ class ProblemSeeder extends Seeder
     public function run()
     {
       //problems with level A for stages
-      $problem = new Problem();
+      $problem = new problem();
       $problem->title = 'title1';
       $problem->description = 'asdlkfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffj';
       $problem->level = 'A';
@@ -21,6 +21,15 @@ class ProblemSeeder extends Seeder
       $problem->score = 10;
       $problem->save();
 
+      $problem33 = new problem();
+      $problem33->title = 'title33';
+      $problem33->description = 'asdlkfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffj';
+      $problem33->level = 'A';
+      $problem33->stage = 1;
+      $problem33->score = 10;
+      $problem33->save();
+
+      $problem->save();
       $problem1 = new Problem();
       $problem1->title = 'title2';
       $problem1->description = 'asdlkfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffj';

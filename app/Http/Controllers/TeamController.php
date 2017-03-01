@@ -40,6 +40,7 @@ class TeamController extends Controller{
 
     public function getLogout(){
       Auth::logout();
+      return redirect()->route('get_team_login');
     }
 
 }

@@ -21,8 +21,8 @@ Route::post('/', [
   'as' => 'post_team_login'
 ]);
 
-Rotue::post('/', [
-    'uses' => 'TeamControllergetLogout',
+Route::get('/logout', [
+    'uses' => 'TeamController@getLogout',
     'as' => 'get_team_logout'
 ]);
 
@@ -34,8 +34,13 @@ Route::group(['middleware' => 'auth'], function(){
   ]);
 
   Route::get('/buy/{problem_id}', [
-    'uses' => 'HomeController@getBuyProblem',
+    'uses' => 'ProblemController@getBuyProblem',
     'as' => 'get_buy_problem'
+  ]);
+
+  Route::get('/problem/{problem_id}', [
+    'uses' => 'ProblemController@getShowProblem',
+    'as' => 'get_show_problem'
   ]);
 
 });
