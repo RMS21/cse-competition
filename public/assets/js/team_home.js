@@ -6,14 +6,21 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'JSON',
     })
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
+    .done(function(data){
+      if(!(data.problems_status === 0)){
+        data.problems_status.forEach(function(o){
+          if(o.state !== 1){
+            if(o.state === 2){
+              $('#stateGlyphicon-'+o.id).removeClass('glyphicon-retweet').addClass('glyphicon-ok');
+              $('#stateText-'+o.id).html('درست');
+            }
+            if(o.state === 3){
+              $('#stateGlyphicon-'+o.id).removeClass('glyphicon-retweet').addClass('glyphicon-remove')
+              $('#stateText-'+o.id).html('غلط');
+            }
+          }
+        });
+      }
     });
 
   }

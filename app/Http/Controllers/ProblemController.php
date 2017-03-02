@@ -66,28 +66,32 @@ class ProblemController extends Controller
 
 
     public function getProblemsLastState(){
-        if(!Auth::check()){
-          return redirect()->route('get_home');
-        }
+      if(!Auth::check()){
+        return redirect()->route('get_home');
+      }
 
       //fetching problems
       $last_game_status = GameStatus::orderBy('created_at', 'desc')->first();
       $game_stage = is_null($last_game_status) ? null : $last_game_status->stage;
 
       if(Auth::user()->level == 'A'){
-          $problem_level = 'D';
+          $problem_level = 'C';
       }else if(Auth::user()->level == 'B'){
-          $problem_level = 'E';
+          $problem_level = 'D';
       }else{
-          $problem_level = 'F';
+          $problem_level = 'E';
       }
 
-     $problems_status = DB::select( DB::raw("SELECT id FROM problems WHERE stage = :game_stage AND (WHERE level between 'A' AND :problem_level OR WHERE level = 'A')"), array(
-                                    'problem_level' => $problem_level, 'game_stage' => $game_stage));
+      $query = "Select problem_id as id, state from review_requests where review_requests.team_id = ".
+                Auth::user()->id." and review_requests.problem_id in (Select id from problems where stage = ".
+                $game_stage ." and  problems.level between 'A' and '". $problem_level ."')";
+      $problems_status = DB::select($query);
+
 
       return response()->JSON(['problems_status' => $problems_status]);
 
     }
+
 
 
     private function checkAuthorizationProblemControl($problem_id){

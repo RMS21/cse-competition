@@ -133,12 +133,12 @@
                                         $problem_state = is_null($problem_state) ? 0 : $problem_state->state;
                                       @endphp
                                       @if($problem_state == 0)
-                                        <span id="stateText#{{ $problem->id }}">‍پاسخ داده نشده</span>
-                                        <i class="glyphicon glyphicon-pencil" id="stateGlyphicon#{{ $problem->id }}"></i>
+                                        <span>‍پاسخ داده نشده</span>
+                                        <i class="glyphicon glyphicon-pencil"></i>
                                       @endif
                                       @if($problem_state == 1)
-                                        <span>در حال بررسی</span>
-                                        <i class="glyphicon glyphicon-retweet"></i>
+                                        <span id="stateText-{{ $problem->id }}">در حال بررسی</span>
+                                        <i class="glyphicon glyphicon-retweet" id="stateGlyphicon-{{ $problem->id }}"></i>
                                       @endif
                                       @if($problem_state == 2)
                                         <span>درست</span>
@@ -153,7 +153,7 @@
                               @php
                                $problem_buyed = BuyProblem::where('team_id', '=', $team->id)->where('problem_id', '=', $problem->id)->exists();
                               @endphp
-                              <a href="{{ $problem_buyed ? '' : route('get_buy_problem', ['problem_id' => $problem->id]) }}" class="btn btn-default {{ $problem_buyed ? 'disabled' : '#' }} ">خرید</a>
+                              <a href="{{ $problem_buyed ? '#' : route('get_buy_problem', ['problem_id' => $problem->id]) }}" class="btn btn-default {{ $problem_buyed ? 'disabled' : '' }} ">خرید</a>
                           </div>
                       </div>
                   </div>
