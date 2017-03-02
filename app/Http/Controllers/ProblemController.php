@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use App\Problem;
 use App\GameStatus;
 use App\BuyProblem;
 use App\Team;
 use App\User;
+use App\ReviewRequest;
 
 class ProblemController extends Controller
 {
@@ -17,7 +19,7 @@ class ProblemController extends Controller
     public function getBuyProblem($problem_id){
 
 
-      $problem = ProblemController::checkAuthorizationProblemControll($problem_id);
+      $problem = ProblemController::checkAuthorizationProblemControl($problem_id);
 
       $new_buyed_problem = new BuyProblem();
       $new_buyed_problem->problem_id = $problem_id;
@@ -33,7 +35,7 @@ class ProblemController extends Controller
 
     public function getShowProblem($problem_id){
 
-      $problem = ProblemController::checkAuthorizationProblemControll($problem_id);
+      $problem = ProblemController::checkAuthorizationProblemControl($problem_id);
 
       $team = Auth::user();
       $team_members = User::where('team_id', '=', $team->id)->count();
@@ -42,7 +44,53 @@ class ProblemController extends Controller
     }
 
 
-    private function checkAuthorizationProblemControll($problem_id){
+    public function getReviewRequestProblem($problem_id){
+
+      ProblemController::checkAuthorizationProblemControl($problem_id);
+
+      $new_review_request_problem = new ReviewRequest();
+      $new_review_request_problem->team_id = Auth::user()->id;
+      $new_review_request_problem->problem_id = $problem_id;
+      $new_review_request_problem->state = 1;
+      $new_review_request_problem->save();
+
+      return redirect()->route('get_home');
+    }
+
+    public function getCancelProblem($problem_id){
+
+      ProblemController::checkAuthorizationProblemControl($problem_id);
+
+      return redirect()->route('get_home');
+    }
+
+
+    public function getProblemsLastState(){
+        if(!Auth::check()){
+          return redirect()->route('get_home');
+        }
+
+      //fetching problems
+      $last_game_status = GameStatus::orderBy('created_at', 'desc')->first();
+      $game_stage = is_null($last_game_status) ? null : $last_game_status->stage;
+
+      if(Auth::user()->level == 'A'){
+          $problem_level = 'D';
+      }else if(Auth::user()->level == 'B'){
+          $problem_level = 'E';
+      }else{
+          $problem_level = 'F';
+      }
+
+     $problems_status = DB::select( DB::raw("SELECT id FROM problems WHERE stage = :game_stage AND (WHERE level between 'A' AND :problem_level OR WHERE level = 'A')"), array(
+                                    'problem_level' => $problem_level, 'game_stage' => $game_stage));
+
+      return response()->JSON(['problems_status' => $problems_status]);
+
+    }
+
+
+    private function checkAuthorizationProblemControl($problem_id){
 
       if(!Auth::check()){
         return redirect()->route('get_team_login');

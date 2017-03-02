@@ -15,14 +15,11 @@ class HomeController extends Controller
 {
     public function getHome(){
 
-      // return Auth::logout();
-
       if(!Auth::check()){
         return redirect()->route('get_team_login');
       }
 
-      $team_name = Auth::user()->name;
-      $team = Team::where('name', '=', $team_name)->firstOrFail();
+      $team = Auth::user();
       $team_members = User::where('team_id', '=', $team->id)->count();
 
       //checking last game status

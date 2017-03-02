@@ -23,14 +23,14 @@
           <link rel="stylesheet" href="{{ URL::to('assets/css/check.css') }}">
         @endif
 
-        
+
         <title>مسابقه</title>
     </head>
     <body>
         <div class="container-fluid">
             <div class="row navbar-information">
                 <div class="col-md-1 logo">
-                    <img src="assets/img/logo1.png" alt="logo">
+                    <img src="{{ URL::to('assets/img/logo1.png') }}" alt="logo">
                 </div>
                 <div class="col-md-3">
                     <div class="group-information">
@@ -133,8 +133,8 @@
                                         $problem_state = is_null($problem_state) ? 0 : $problem_state->state;
                                       @endphp
                                       @if($problem_state == 0)
-                                        <span>‍پاسخ داده نشده</span>
-                                        <i class="glyphicon glyphicon-pencil"></i>
+                                        <span id="stateText#{{ $problem->id }}">‍پاسخ داده نشده</span>
+                                        <i class="glyphicon glyphicon-pencil" id="stateGlyphicon#{{ $problem->id }}"></i>
                                       @endif
                                       @if($problem_state == 1)
                                         <span>در حال بررسی</span>
@@ -169,5 +169,7 @@
         <script src="{{ URL::to('assets/Material-Kit/assets/js/jquery.min.js') }}" type="text/javascript"></script>
         <script src="{{ URL::to('assets/Material-Kit/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
+
+        <script src="{{ URL::to('assets/js/team_home.js') }}"></script>
     </body>
 </html>

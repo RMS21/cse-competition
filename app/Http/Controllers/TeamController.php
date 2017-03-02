@@ -11,6 +11,9 @@ class TeamController extends Controller{
     public function getTeamLogin(){
 
       if(Auth::check()){
+        if(Auth::user()->name == "admin"){
+          return redirect()->route('get_admin_home');
+        }
         return redirect()->route('get_home');
       }
 
@@ -31,7 +34,7 @@ class TeamController extends Controller{
       //checking if the team is admin or not
       $team = Team::where('name', '=', $request->name)->firstOrFail();
       if($team->role == "admin"){
-        return "Admin";
+        return redirect()->route('get_admin_home');
       }
       else{
         return redirect()->route('get_home');
