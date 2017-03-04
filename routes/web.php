@@ -65,4 +65,8 @@ Route::group(['middleware' => 'auth'], function(){
     'as' => 'get_admin_home'
   ]);
 
+  Route::get('/game/status', [
+    'uses' => "HomeController@getLastGameStatus",
+  ]);
+
 });

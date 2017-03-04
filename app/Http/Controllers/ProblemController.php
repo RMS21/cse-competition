@@ -70,9 +70,13 @@ class ProblemController extends Controller
         return redirect()->route('get_home');
       }
 
+
+
+
       //fetching problems
       $last_game_status = GameStatus::orderBy('created_at', 'desc')->first();
       $game_stage = is_null($last_game_status) ? null : $last_game_status->stage;
+
 
       if(Auth::user()->level == 'A'){
           $problem_level = 'C';
@@ -88,7 +92,7 @@ class ProblemController extends Controller
       $problems_status = DB::select($query);
 
 
-      return response()->JSON(['problems_status' => $problems_status]);
+      return response()->JSON(['problems_status' => $problems_status, 'team_score' => Auth::user()->score]);
 
     }
 
