@@ -91,5 +91,23 @@
     <script src="{{ URL::to('assets/Material-Kit/assets/js/jquery.min.js') }}" type="text/javascript"></script>
   	<script src="{{ URL::to('assets/Material-Kit/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
   	<script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        function getLastGameStatus(){
+          $.ajax({
+            url: 'http://localhost:8000/game/status',
+            type: 'GET',
+            dataType: 'JSON',
+            data: { 'is_started' : {{ $is_game_started }} }
+          }).done(function (data){
+            if(data.redirect === 1){
+              document.location.href = 'http://localhost:8000/home';
+            }
+            // alert(typeof data.redirect == 1);
+          });
+        }
 
+      setInterval(getLastGameStatus, 10000);
+      });
+    </script>
 </html>

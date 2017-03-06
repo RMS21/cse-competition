@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
           $table->string('phone_number');
           $table->string('email');
           $table->unsignedTinyInteger('entery_year');
+          $table->string('univercity');
           $table->timestamps();
         });
 

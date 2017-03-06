@@ -174,23 +174,23 @@
           <script src="{{ URL::to('assets/js/team_home.js') }}"></script>
         @endif
         <script type="text/javascript">
-        $(document).ready(function() {
-          function getLastGameStatus(){
-            $.ajax({
-              url: 'http://localhost:8000/game/status',
-              type: 'GET',
-              dataType: 'JSON',
-              data: { 'is_started' : {{ $is_game_started }} }
-            }).done(function (data){
-              if(data.redirect === 1){
-                document.location.href = 'http://localhost:8000/home';
-              }
-              // alert(typeof data.redirect == 1);
-            });
-          }
+          $(document).ready(function() {
+            function getLastGameStatus(){
+              $.ajax({
+                url: 'http://localhost:8000/game/status',
+                type: 'GET',
+                dataType: 'JSON',
+                data: { 'is_started' : {{ $is_game_started }} }
+              }).done(function (data){
+                if(data.redirect === 1){
+                  document.location.href = 'http://localhost:8000/home';
+                }
+                // alert(typeof data.redirect == 1);
+              });
+            }
 
-          setInterval(getLastGameStatus, 10000);
-          });
+            setInterval(getLastGameStatus, 10000);
+            });
         </script>
     </body>
 </html>

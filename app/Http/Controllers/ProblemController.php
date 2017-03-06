@@ -39,8 +39,9 @@ class ProblemController extends Controller
 
       $team = Auth::user();
       $team_members = User::where('team_id', '=', $team->id)->count();
+      $is_started = GameStatus::orderBy('created_at', 'desc')->first()->is_started;
 
-      return view('user.show_problem', ['problem' => $problem, 'team' => $team, 'team_members' => $team_members]);
+      return view('user.show_problem', ['problem' => $problem, 'team' => $team, 'team_members' => $team_members, 'is_game_started' => $is_started]);
     }
 
 

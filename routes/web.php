@@ -26,7 +26,15 @@ Route::get('/logout', [
     'as' => 'get_team_logout'
 ]);
 
+Route::get('/register', [
+    'uses' => 'TeamController@getTeamRegister',
+    'as' => 'get_team_register'
+]);
 
+Route::post('/register', [
+  'uses' => 'TeamController@postTeamRegister',
+  'as' => 'post_team_register'
+]);
 
 Route::group(['middleware' => 'auth'], function(){
 

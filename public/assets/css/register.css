@@ -1,0 +1,96 @@
+@font-face{
+    font-family: IRANSans ;
+    font-style: normal ;
+    font-weight: normal;
+    src:url("../fonts/irsans.ttf");
+}
+html{
+    height: 100% ;
+}
+*:not(.glyphicon):not(.material-icons) {
+    font-family: IRANSans !important;
+}
+
+body{
+    background-color: #FAFAFA;
+}
+.card-signup{
+    margin:130px 0;
+}
+h1{
+    font-size: 25px;
+    line-height: 12px;
+}
+.header-primary{
+    background: #BA68C8 !important;
+}
+
+.title-login{
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+    padding-bottom: 0 ;
+}
+.title-login img{
+    width: 100px;
+    padding-bottom: 0;
+    margin: 10px 0 ;
+}
+.content {
+    margin-left:1% !important;
+}
+.input-group-addon > img , .input-group-addon > i {
+    width:30px ;
+}
+.field-checkbox{
+    direction: rtl !important;
+    margin:5% 0 ;
+}
+.login-form{
+    margin-top: 10%;
+    border: 2px solid #ccc;
+    border-radius:10px;
+    background: #ffffff;
+    opacity:0.85;
+    z-index: 99;
+}
+#register{
+    border-radius: 10px;
+    background-color:#9C27B0;
+    color:#fff;
+    transition: 0.69s;
+    width:200px;
+    margin:auto;
+    background-image:linear-gradient(#fff,#fff) !important;
+}
+#register:hover{
+    background:#8E24AA !important;
+}
+#login{
+    text-align: center;
+    color:#8E24AA !important;
+    width:100%;
+    margin:20px 0;
+}
+#login a {
+    text-decoration: none;
+}
+.content h2{
+    font-size: 23px;
+    margin-top: 25px;
+}
+.content p{
+    text-align: center;
+    margin-top: 25px;
+    color: #ff4d4d;
+}
+.personal-information{
+    margin-bottom: 40px;
+}
+.personal-information:last-child{
+    margin-bottom: 100px;
+}
+.material-icons{
+    right:90%;
+}

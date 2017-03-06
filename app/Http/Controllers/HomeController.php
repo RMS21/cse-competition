@@ -43,7 +43,6 @@ class HomeController extends Controller
          }
 
          return response()->JSON(['redirect' => 0]);
-
       }
 
 }
