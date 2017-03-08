@@ -13,7 +13,7 @@
         <title>مسابقه</title>
     </head>
     <body>
-        <div class="container-fluid">
+          <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="card card-signup">

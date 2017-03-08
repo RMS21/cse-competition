@@ -52,28 +52,53 @@ class TeamController extends Controller{
         'team_name' => 'required | alpha_dash',
         'password' => ['required', 'min: 4' , 'max: 50', 'regex:  /^[a-zA-Z0-9!@#\$\^\&*\)\(._-]+$/', 'confirmed' ],
         'password_confirmation' => ['required', 'min: 4' , 'max: 50', 'regex:  /^[a-zA-Z0-9!@#\$\^\&*\)\(._-]+$/'],
-        'fname_1' => 'required | alpha',
-        'lname_1' => 'required | alpha',
+        'fname_1' => 'required | alpha_dash',
+        'lname_1' => 'required | alpha_dash',
         'snumber_1' => 'required | numeric',
         'eyear_1' => 'required | numeric',
         'pnumber_1' => 'required | numeric',
         'email_1' => 'required | email',
-        'uname_1' => 'required | alpha',
-        'fname_2' => 'required | alpha',
-        'lname_2' => 'required | alpha',
+        'uname_1' => 'required | alpha_dash',
+        'fname_2' => 'required | alpha_dash',
+        'lname_2' => 'required | alpha_dash',
         'snumber_2' => 'required | numeric',
         'eyear_2' => 'required | numeric',
         'pnumber_2' => 'required | numeric',
         'email_2' => 'required | email',
-        'uname_2' => 'required | alpha',
-        'fname_3' => 'required | alpha',
-        'lname_3' => 'required | alpha',
+        'uname_2' => 'required | alpha_dash',
+        'fname_3' => 'required | alpha_dash',
+        'lname_3' => 'required | alpha_dash',
         'snumber_3' => 'required | numeric',
         'eyear_3' => 'required | numeric',
         'pnumber_3' => 'required | numeric',
         'email_3' => 'required | email',
-        'uname_3' => 'required | alpha'
+        'uname_3' => 'required | alpha_dash'
         ]);
+
+
+        //checking for entered email
+        if(($request->email_1 == $request->email_2) || ($request->email_1 == $request->email_3) || ($request->email_2 == $request->email_3)){
+          return redirect()->back()->with('fail', 'ایمیل های یکسان وارد شده');
+        }
+
+        //checking for entered phone numbers
+        if(($request->pnumber_1 == $request->pnumber_2) || ($request->pnumber_1 == $request->pnumber_3) || ($request->pnumber_2 == $request->pnumber_3)){
+          return redirect()->back()->with('fail', 'شماره تلفن های یکسانی وارد شده');
+        }
+
+        //checking for entered student number
+        if(($request->snumber_1 == $request->snumber_2) || ($request->snumber_1 == $request->snumber_3) || ($request->snumber_2 == $request->snumber_2)){
+          return redirect()->back()->with('fail', 'شماره دانشجویی های یکسان وارد شده');
+        }
+
+        //checking for entered name and family
+        if((($request->fname_1  == $request->fname_2) && ($request->lname_1 == $request->lname_2)) ||
+          (($request->fname_1 == $request->fname_3) && ($request->lname_1 == $reqiest->lname_3))   ||
+          (($request->fname_2 == $request->fname_3) && ($request->lname_2 == $request->lname_3))
+        ){
+            return redirect()->back()->with('fail', 'نام و نام خانوادگی های یکسانی وارد شده');
+        }
+
 
         //checking if the team name exits
         if(Team::where('name', $request->team_name)->first() !== null){
@@ -123,16 +148,15 @@ class TeamController extends Controller{
         if(User::where('email', $request->email_3)->first() !== null){
             return redirect()->back()->with('fail', 'ایمیل نفر سوم وجود دارد');
         }
-
         $team = new Team();
         $team->name = $request->team_name;
         $level = round(($request->eyear_1 + $request->eyear_2 + $request->eyear_3) / 3);
         $level = $level <= 93 ? 'A' : ( $level == 94 ? 'B' : 'C');
-        return die(var_dump($level));
         $team->level = $level;
         $team->role = "member";
         $team->score = 300;
         $team->password =  bcrypt($request->password);
+        $team->save();
 
         $team_id = Team::where('name', '=', $request->team_name)->first()->id;
 
@@ -143,7 +167,8 @@ class TeamController extends Controller{
         $user1->student_number = $request->snumber_1;
         $user1->phone_number = $request->pnumber_1;
         $user1->entery_year = $request->eyear_1;
-        $user->univercity = $request->uname_1;
+        $user1->univercity = $request->uname_1;
+        $user1->email = $request->email_1;
         $user1->save();
 
         $user2 = new User();
@@ -154,6 +179,7 @@ class TeamController extends Controller{
         $user2->phone_number = $request->pnumber_2;
         $user2->entery_year = $request->eyear_2;
         $user2->univercity = $request->uname_2;
+        $user2->email = $request->email_2;
         $user2->save();
 
         $user3 = new User();
@@ -164,6 +190,7 @@ class TeamController extends Controller{
         $user3->phone_number = $request->pnumber_3;
         $user3->entery_year = $request->eyear_3;
         $user3->univercity = $request->uname_3;
+        $user3->email = $request->email_3;
         $user3->save();
 
         Auth::login($team);
