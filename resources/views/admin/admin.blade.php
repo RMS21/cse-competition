@@ -61,6 +61,11 @@
                             پایان
                         </button>
                     </div>
+                    <div class="col-md-2 col-md-offset-3 rank">
+                        <button class="btn btn-primary btn-round">
+                            رتبه بندی تیم ها
+                        </button>
+                    </div>
                 </div>
                 <section>
                     <div class="row">
