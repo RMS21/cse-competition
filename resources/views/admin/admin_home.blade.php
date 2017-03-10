@@ -3,33 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="viewport" content="width=device-width , initial-scale=1">
-        <link rel="stylesheet" href="../bootstrap-rtl/css/bootstrap.rtl.min.css">
-        <!--<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
-        <link rel="stylesheet" href="Material-Kit/assets/css/material-kit.css">
+        <link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap-rtl.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('assets/Material-Kit/assets/css/material-kit.css') }}">
 
-        <link rel="stylesheet" href="Material-Kit/assets/css/demo.css">
-        <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="{{ URL::to('assets/Material-Kit/assets/css/demo.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.css') }}">
 
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-        <link rel="stylesheet" href="assets/css/admin.css">
+        <link rel="stylesheet" href="{{ URL::to('assets/css/admin.css') }}">
 
         <title>مسابقه</title>
-        <style>
-
-        </style>
-
     </head>
     <body>
         <div class="container-fluid">
             <div class="row navbar-admin">
                 <div class="logo">
-                    <img src="assets/img/logo1.png" alt="" style="height: 69px;">
+                    <img src="{{ URL::to('assets/img/logo1.png') }}" alt="" style="height: 69px;">
                 </div>
                 <div class="question">
                     <a href="">
                         <span>طرح سوال</span>
-                        <img src="assets/img/question.png" alt="" height="40px;">
+                        <img src="{{ URL::to('assets/img/question.png') }}" alt="" height="40px;">
                     </a>
                 </div>
                 <div class="name-contest">
@@ -106,21 +100,18 @@
                 </section>
             </div>
         </div>
-    </body>
-    <script src="Material-Kit/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="Material-Kit/assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="Material-Kit/assets/js/material.min.js"></script>
-    <script src="assets/js/dropdown.js"></script>
-    <script src="Material-Kit/assets/js/material-kit.js"></script>
-    <!--<script src="Material-Kit/assets/js/bootstrap-datepicker.js"></script>-->
-    <!--<script src="Material-Kit/assets/js/nouislider.js"></script>-->
-    <!--<script src="assets/js/tagsinput.js"></script>-->
+        <script src="{{ URL::to('assets/js/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::to('assets/Material-Kit/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
+        <script src="{{ URL::to('assets/js/dropdown.js') }}"></script>
+        <script src="{{ URL::to('assets/Material-Kit/assets/js/material-kit.js') }}"></script>
+        <script>
+            $(function() {
 
-    <script>
-        $(function() {
+                $(".select").dropdown({ "autoinit" : ".select" });
+                $(".select").dropdown({ "dropdownClass": "my-dropdown", "optionClass": "my-option awesome" });
+            })
+        </script>
+  </body>
 
-            $(".select").dropdown({ "autoinit" : ".select" });
-            $(".select").dropdown({ "dropdownClass": "my-dropdown", "optionClass": "my-option awesome" });
-        })
-    </script>
 </html>

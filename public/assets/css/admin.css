@@ -11,13 +11,13 @@ body{
     background-color: #FAFAFA;
     margin-bottom: 90px ;
 }
-*{
+*:not(.glyphicon){
     font-family: IRANSans ;
 }
 .navbar-admin{
     background-color:#7B1FA2;
     color: #fff;
-    height: 69px ;
+    height: 69px;
     direction: rtl;
     position: relative;
 }
@@ -72,6 +72,10 @@ body{
     margin-top: 14px;
     padding: 8px 0 ;
     margin-top:22px;
+}
+
+.rank > a{
+    font-size: 14px;
 }
 .select-level{
     margin-top:50px;
