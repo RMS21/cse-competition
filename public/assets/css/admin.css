@@ -66,7 +66,7 @@ body{
 .start {
     text-align: center;
 }
-.start > button , .end > button {
+.start > button , .end > button , .rank > button{
     width: 120px;
     font-size: 17px;
     margin-top: 14px;
