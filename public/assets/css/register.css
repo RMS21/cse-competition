@@ -15,7 +15,11 @@ body{
     background-color: #FAFAFA;
 }
 .card-signup{
+<<<<<<< HEAD
     margin-top:130px;
+=======
+    margin:130px 0;
+>>>>>>> faef3ceb96096f438dc177353506d9e41884c2ad
 }
 h1{
     font-size: 25px;
@@ -61,7 +65,11 @@ h1{
     color:#fff;
     transition: 0.69s;
     width:200px;
+<<<<<<< HEAD
     margin:auto; 
+=======
+    margin:auto;
+>>>>>>> faef3ceb96096f438dc177353506d9e41884c2ad
     background-image:linear-gradient(#fff,#fff) !important;
 }
 #register:hover{
@@ -78,7 +86,16 @@ h1{
 }
 .content h2{
     font-size: 23px;
+<<<<<<< HEAD
     margin-top: 30px;
+=======
+    margin-top: 25px;
+}
+.content p{
+    text-align: center;
+    margin-top: 25px;
+    color: #ff4d4d;
+>>>>>>> faef3ceb96096f438dc177353506d9e41884c2ad
 }
 .personal-information{
     margin-bottom: 40px;
@@ -86,5 +103,11 @@ h1{
 .personal-information:last-child{
     margin-bottom: 100px;
 }
+<<<<<<< HEAD
 
 
+=======
+.material-icons{
+    right:90%;
+}
+>>>>>>> faef3ceb96096f438dc177353506d9e41884c2ad

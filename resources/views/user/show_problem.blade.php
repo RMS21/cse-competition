@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.css') }}">
         <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('assets/css/home.css') }}">
         <link rel="stylesheet" href="{{ URL::to('assets/css/question.css') }}">
         <title>مسابقه</title>
         <style>
@@ -19,10 +20,13 @@
     <body>
         <div class="container-fluid">
             <div class="row navbar-information">
-                <div class="col-md-4">
+                <div class="col-md-1 logo">
+                    <img src="{{ URL::to('assets/img/logo1.png') }}" alt="logo">
+                </div>
+                <div class="col-md-3">
                     <div class="group-information">
                         <span class="group-property">گروه</span>
-                        <span class="value-property">{{ $team->name }}</span>
+                        <span class="value-property">{{ $team->name}}</span>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -43,8 +47,10 @@
                         <span class="value-property">{{ $team_members }}</span>
                     </div>
                 </div>
-                <div class="col-md-offset-2 col-md-1 logo">
-                    <img src="assets/img/logo1.png" alt="logo">
+                <div class="col-md-1 col-md-offset-2">
+                    <a href="{{ route('get_team_logout') }}">
+                        <span class="glyphicon glyphicon-off"></span>
+                    </a>
                 </div>
             </div>
             <div class="container question">
@@ -70,8 +76,8 @@
                                 </div>
                                 <hr>
                                 <div class="decision">
-                                    <a href="#" class="btn btn-primary">در خواست بازبینی</a>
-                                    <a href="#" class="btn btn-primary">انصراف</a>
+                                    <a href="{{ route('get_review_request_problem', ['problem_id' => $problem->id]) }}" class="btn btn-primary">در خواست بازبینی</a>
+                                    <a href="{{ route('get_cancel_problem', ['problem_id' => $problem->id]) }}" class="btn btn-primary">انصراف</a>
                                 </div>
                         </div>
                     </div>
@@ -85,5 +91,23 @@
     <script src="{{ URL::to('assets/Material-Kit/assets/js/jquery.min.js') }}" type="text/javascript"></script>
   	<script src="{{ URL::to('assets/Material-Kit/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
   	<script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        function getLastGameStatus(){
+          $.ajax({
+            url: 'http://localhost:8000/game/status',
+            type: 'GET',
+            dataType: 'JSON',
+            data: { 'is_started' : {{ $is_game_started }} }
+          }).done(function (data){
+            if(data.redirect === 1){
+              document.location.href = 'http://localhost:8000/home';
+            }
+            // alert(typeof data.redirect == 1);
+          });
+        }
 
+      setInterval(getLastGameStatus, 10000);
+      });
+    </script>
 </html>

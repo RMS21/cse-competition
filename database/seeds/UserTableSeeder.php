@@ -22,6 +22,7 @@ class UserTableSeeder extends Seeder
        $user->phone_number = '09372508686';
        $user->email = 'rasoul_salehi@ymail.com';
        $user->entery_year = 93;
+       $user->univercity = 'shiraz';
        $user->save();
 
        $user1 = new User();
@@ -32,6 +33,7 @@ class UserTableSeeder extends Seeder
        $user1->phone_number = '09372508686';
        $user1->email = 'rasoul_salehi@ymail.com';
        $user1->entery_year = 93;
+       $user1->univercity = 'tehran';
        $user1->save();
 
        $user2 = new User();
@@ -42,6 +44,7 @@ class UserTableSeeder extends Seeder
        $user2->phone_number = '09372508686';
        $user2->email = 'rasoul_salehi@ymail.com';
        $user2->entery_year = 93;
+       $user2->univercity = 'amirkabir';
        $user2->save();
 
        $user3 = new User();
@@ -52,6 +55,7 @@ class UserTableSeeder extends Seeder
        $user3->phone_number = '09372508686';
        $user3->email = 'rasoul_salehi@ymail.com';
        $user3->entery_year = 93;
+       $user3->univercity = 'ahvaz';
        $user3->save();
 
        $user4 = new User();
@@ -62,6 +66,7 @@ class UserTableSeeder extends Seeder
        $user4->phone_number = '09372508686';
        $user4->email = 'rasoul_salehi@ymail.com';
        $user4->entery_year = 93;
+       $user4->univercity = 'sharif';
        $user4->save();
 
        $user5 = new User();
@@ -72,6 +77,7 @@ class UserTableSeeder extends Seeder
        $user5->phone_number = '09372508686';
        $user5->email = 'rasoul_salehi@ymail.com';
        $user5->entery_year = 93;
+       $user5->univercity = 'shiraz';
        $user5->save();
 
        $user6 = new User();
@@ -82,6 +88,7 @@ class UserTableSeeder extends Seeder
        $user6->phone_number = '09372508686';
        $user6->email = 'rasoul_salehi@ymail.com';
        $user6->entery_year = 93;
+       $user6->univercity = 'elmo san at';
        $user6->save();
 
        $user7 = new User();
@@ -92,6 +99,7 @@ class UserTableSeeder extends Seeder
        $user7->phone_number = '09372508686';
        $user7->email = 'rasoul_salehi@ymail.com';
        $user7->entery_year = 93;
+       $user7->univercity = "azad shiraz";
        $user7->save();
     }
 }

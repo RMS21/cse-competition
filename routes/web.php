@@ -26,6 +26,16 @@ Route::get('/logout', [
     'as' => 'get_team_logout'
 ]);
 
+Route::get('/register', [
+    'uses' => 'TeamController@getTeamRegister',
+    'as' => 'get_team_register'
+]);
+
+Route::post('/register', [
+  'uses' => 'TeamController@postTeamRegister',
+  'as' => 'post_team_register'
+]);
+
 Route::group(['middleware' => 'auth'], function(){
 
   Route::get('/home', [
@@ -41,6 +51,30 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/problem/{problem_id}', [
     'uses' => 'ProblemController@getShowProblem',
     'as' => 'get_show_problem'
+  ]);
+
+  Route::get('/problem/review/request/{problem_id}', [
+    'uses' => 'ProblemController@getReviewRequestProblem',
+    'as' => 'get_review_request_problem'
+  ]);
+
+  Route::get('/problem/cancel/{problem_id}', [
+    'uses' => 'ProblemController@getCancelProblem',
+    'as' => 'get_cancel_problem'
+  ]);
+
+  Route::get('/problems/laststates', [
+    'uses' => 'ProblemController@getProblemsLastState',
+    'as' => 'get_problems_last_states'
+  ]);
+
+  Route::get('/home/admin', [
+    'uses'  => 'AdminController@getAdminHome',
+    'as' => 'get_admin_home'
+  ]);
+
+  Route::get('/game/status', [
+    'uses' => "HomeController@getLastGameStatus",
   ]);
 
 });

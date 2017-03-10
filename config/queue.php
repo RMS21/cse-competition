@@ -82,4 +82,4 @@ return [
         'table' => 'failed_jobs',
     ],
 
-];
+  ];

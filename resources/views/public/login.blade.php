@@ -56,17 +56,17 @@
                                 </div>
                             </div>
                             <div id="register">
-                                <a href="register.html">ثبت نام</a>
-                            </div>    
+                                <a href="{{ route('get_team_register') }}">ثبت نام</a>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 
-    <script src="{{ URL::to('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ URL::to('assets/js/bootstrap.min.js') }}"></script>
-	  <script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
+        <script src="{{ URL::to('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ URL::to('assets/js/bootstrap.min.js') }}"></script>
+	    <script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
 
     </body>
 </html>

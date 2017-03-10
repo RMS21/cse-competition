@@ -23,14 +23,14 @@
           <link rel="stylesheet" href="{{ URL::to('assets/css/check.css') }}">
         @endif
 
-        
+
         <title>مسابقه</title>
     </head>
     <body>
         <div class="container-fluid">
             <div class="row navbar-information">
                 <div class="col-md-1 logo">
-                    <img src="assets/img/logo1.png" alt="logo">
+                    <img src="{{ URL::to('assets/img/logo1.png') }}" alt="logo">
                 </div>
                 <div class="col-md-3">
                     <div class="group-information">
@@ -41,7 +41,7 @@
                 <div class="col-md-2">
                     <div class="group-information">
                         <span class="group-property">امتیاز</span>
-                        <span class="value-property">{{ $team->score }}</span>
+                        <span class="value-property" id="team-score">{{ $team->score }}</span>
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -137,8 +137,8 @@
                                         <i class="glyphicon glyphicon-pencil"></i>
                                       @endif
                                       @if($problem_state == 1)
-                                        <span>در حال بررسی</span>
-                                        <i class="glyphicon glyphicon-retweet"></i>
+                                        <span id="stateText-{{ $problem->id }}">در حال بررسی</span>
+                                        <i class="glyphicon glyphicon-retweet" id="stateGlyphicon-{{ $problem->id }}"></i>
                                       @endif
                                       @if($problem_state == 2)
                                         <span>درست</span>
@@ -153,7 +153,7 @@
                               @php
                                $problem_buyed = BuyProblem::where('team_id', '=', $team->id)->where('problem_id', '=', $problem->id)->exists();
                               @endphp
-                              <a href="{{ $problem_buyed ? '' : route('get_buy_problem', ['problem_id' => $problem->id]) }}" class="btn btn-default {{ $problem_buyed ? 'disabled' : '#' }} ">خرید</a>
+                              <a href="{{ $problem_buyed ? '#' : route('get_buy_problem', ['problem_id' => $problem->id]) }}" class="btn btn-default {{ $problem_buyed ? 'disabled' : '' }} ">خرید</a>
                           </div>
                       </div>
                   </div>
@@ -169,5 +169,28 @@
         <script src="{{ URL::to('assets/Material-Kit/assets/js/jquery.min.js') }}" type="text/javascript"></script>
         <script src="{{ URL::to('assets/Material-Kit/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
+
+        @if($is_game_started)
+          <script src="{{ URL::to('assets/js/team_home.js') }}"></script>
+        @endif
+        <script type="text/javascript">
+          $(document).ready(function() {
+            function getLastGameStatus(){
+              $.ajax({
+                url: 'http://localhost:8000/game/status',
+                type: 'GET',
+                dataType: 'JSON',
+                data: { 'is_started' : {{ $is_game_started }} }
+              }).done(function (data){
+                if(data.redirect === 1){
+                  document.location.href = 'http://localhost:8000/home';
+                }
+                // alert(typeof data.redirect == 1);
+              });
+            }
+
+            setInterval(getLastGameStatus, 10000);
+            });
+        </script>
     </body>
 </html>
