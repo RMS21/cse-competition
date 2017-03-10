@@ -1,0 +1,92 @@
+@font-face{
+    font-family: IRANSans ;
+    font-style: normal ;
+    font-weight: normal;
+    src:url("../fonts/irsans.ttf");
+}
+html{
+    height: 100% ;
+}
+body{
+    background-color: #FAFAFA;
+    margin-bottom: 90px ;
+}
+*{
+    font-family: IRANSans ;
+}
+.navbar-admin{
+    background-color:#7B1FA2;
+    color: #fff;
+    height: 69px ;
+    direction: rtl;
+    position: relative;
+}
+.logo {
+    position: absolute ;
+    display: inline;
+    width: 69px;
+    right: 150px;
+}
+.question{
+    display: inline;
+    position: absolute;
+    right:250px;
+    top:12px;
+}
+.question span{
+    font-size: 15px !important;
+}
+.question a{
+    display: inline-block;
+    text-decoration: none;
+}
+.question span{
+    font-size: 20px;
+    color: #fff;
+}
+.name-contest{
+    position: absolute;
+    display: inline;
+    right: 585px;
+    font-size: 23px;
+    top:20px;
+}
+.logout{
+    position: absolute ;
+    display: inline;
+    left: 150px;
+    top:20px;
+    font-size: 23px;
+}
+.glyphicon-off{
+    font-size: 24px;
+    color: #fff;
+    margin-top: -2px;
+}
+.start {
+    text-align: center;
+}
+.start > button , .end > button {
+    width: 120px;
+    font-size: 17px;
+    margin-top: 14px;
+    padding: 8px 0 ;
+    margin-top:22px;
+}
+.select-level{
+    margin-top:50px;
+}
+section{
+    margin: 100px 0 ;
+}
+.header-primary{
+    font-size: 16px;
+}
+.content div{
+    font-size: 15px;
+    margin: 20px 0 ;
+    font-weight: bold;
+}
+.radio{
+    display: inline;
+}
