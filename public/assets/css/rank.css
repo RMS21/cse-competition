@@ -1,0 +1,61 @@
+@font-face{
+                font-family: IRANSans ;
+                font-style: normal ;
+                font-weight: normal;
+                src:url("../fonts/irsans.ttf");
+            }
+            html{
+                height: 100% ;
+            }
+            body{
+                background-color: #FAFAFA;
+                margin-bottom: 90px ;
+            }
+            *{
+                font-family: IRANSans ;
+            }
+            .navbar-admin{
+                background-color:#7B1FA2;
+                color: #fff;
+                height: 69px ;
+                direction: rtl;
+                position: relative;
+            }
+            .logo {
+                position: absolute ;
+                display: inline;
+                width: 69px;
+                right: 150px;
+            }
+            .name-contest{
+                position: absolute;
+                display: inline;
+                right: 585px;
+                font-size: 23px;
+                top:20px;
+            }
+            .logout{
+                position: absolute ;
+                display: inline;
+                left: 150px;
+                top:20px;
+                font-size: 23px;
+            }
+            .glyphicon-off{
+                font-size: 24px;
+                color: #fff;
+                margin-top: -2px;
+            }
+            .title h3 {
+                font-size: 23px !important;
+                font-weight: bold !important;
+                margin-right: 8.3%;
+            } 
+            th {
+                font-size: 23px !important;
+                font-weight: bold !important;
+            }
+            td{
+                font-size: 22px !important;
+                font-weight: bold !important;    
+            }

@@ -11,13 +11,13 @@ body{
     background-color: #FAFAFA;
     margin-bottom: 90px ;
 }
-*:not(.glyphicon){
+*{
     font-family: IRANSans ;
 }
 .navbar-admin{
     background-color:#7B1FA2;
     color: #fff;
-    height: 69px;
+    height: 69px ;
     direction: rtl;
     position: relative;
 }
@@ -66,16 +66,12 @@ body{
 .start {
     text-align: center;
 }
-.start > button , .end > button , .rank > a{
-    width: 120px;
+.start > button , .end > button , .rank > a {
+    width: 160px;
     font-size: 17px;
     margin-top: 14px;
     padding: 8px 0 ;
     margin-top:22px;
-}
-
-.rank > a{
-    font-size: 14px;
 }
 .select-level{
     margin-top:50px;
@@ -93,4 +89,9 @@ section{
 }
 .radio{
     display: inline;
+    margin-left: 20px;
+}
+.title h3{
+    font-weight: bold ;
+    margin-right: 8.4% ;
 }
