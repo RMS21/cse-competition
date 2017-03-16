@@ -49,10 +49,14 @@ class ProblemController extends Controller
 
       ProblemController::checkAuthorizationProblemControl($problem_id);
 
+      $last_game_status = GameStatus::orderBy('created_at', 'desc')->first();
+      $game_stage = $last_game_status->stage;
+
       $new_review_request_problem = new ReviewRequest();
       $new_review_request_problem->team_id = Auth::user()->id;
       $new_review_request_problem->problem_id = $problem_id;
       $new_review_request_problem->state = 1;
+      $new_review_request_problem->stage = $game_stage;
       $new_review_request_problem->save();
 
       return redirect()->route('get_home');
@@ -70,9 +74,6 @@ class ProblemController extends Controller
       if(!Auth::check()){
         return redirect()->route('get_home');
       }
-
-
-
 
       //fetching problems
       $last_game_status = GameStatus::orderBy('created_at', 'desc')->first();

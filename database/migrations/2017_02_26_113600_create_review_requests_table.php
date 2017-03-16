@@ -17,6 +17,7 @@ class CreateReviewRequestsTable extends Migration
           $table->engine = "InnoDB";
           $table->unsignedInteger('team_id');
           $table->unsignedInteger('problem_id');
+          $table->unsignedTinyInteger('stage');
           $table->unsignedTinyInteger('state');
           $table->timestamps();
         });

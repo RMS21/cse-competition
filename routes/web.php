@@ -68,13 +68,18 @@ Route::group(['middleware' => 'auth'], function(){
     'as' => 'get_problems_last_states'
   ]);
 
-  Route::get('/home/admin', [
-    'uses'  => 'AdminController@getAdminHome',
-    'as' => 'get_admin_home'
-  ]);
 
   Route::get('/game/status', [
     'uses' => "HomeController@getLastGameStatus",
   ]);
 
+  Route::get('/admin', [
+    'uses'  => 'AdminController@getAdminHome',
+    'as' => 'get_admin_home'
+  ]);
+
+  Route::get('/team/ranking', [
+    'uses' => 'AdminController@getTeamRanking',
+    'as' => 'get_team_ranking'
+  ]);
 });
