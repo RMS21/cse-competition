@@ -93,4 +93,9 @@ Route::group(['middleware' => 'auth'], function(){
     'as' => 'get_start_game'
   ]);
 
+  Route::get('/answer/{team_id}/{problem_id}/{problem_answer}', [
+    'uses' => "AdminController@getAnswerProblem",
+
+  ]);
+
 });

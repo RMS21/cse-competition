@@ -94,3 +94,9 @@ section{
 .radio{
     display: inline;
 }
+
+.btn-custom{
+  height: 25px !important;
+  width: 25px !important;
+  margin-right: 20px !important;
+}

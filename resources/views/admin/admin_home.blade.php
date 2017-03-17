@@ -84,7 +84,7 @@
 		                                    <th style="padding-right:30px;">وضعیت پاسخ</th>
 		                                </tr>
 		                            </thead>
-		                            <tbody>
+		                            <tbody id="table-body">
                                   @if(!is_null($review_requests))
                                     @php $counter = 1; @endphp
                                     @foreach($review_requests as $req)
@@ -93,19 +93,13 @@
                                           <td>{{ $req->problem_title }}</td>
                                           <td>{{ $req->team_name }}</td>
                                           <td>{{ $req->stage }}</td>
-  		                                    <td class="review">
-  		                                        <div class="radio" >
-                                                      <label>
-                                                          <input type="radio" name="optionsRadios" onclick="click()">
-                                                          درست
-                                                      </label>
-                                                  </div>
-                                                  <div class="radio" >
-                                                      <label>
-                                                          <input type="radio" name="optionsRadios">
-                                                          غلط
-                                                      </label>
-                                                  </div>
+  		                                    <td>
+                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-xs btn-custom" onclick="answer({{$req->team_id}}, {{$req->problem_id}}, {{ 2 }})">
+                                              <i class="glyphicon glyphicon-ok"></i>
+                                            </button>
+                                          <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-xs btn-custom" onclick="answer({{$req->team_id}}, {{$req->problem_id}}, {{ 3 }})">
+                                              <i class="glyphicon glyphicon-remove"></i>
+                                            </button>
                                           </td>
                                       </tr>
                                       @php $counter += 1 @endphp
