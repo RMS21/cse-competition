@@ -42,7 +42,7 @@
 
                 <div class="row select-level">
                     <div class="col-md-2 col-md-offset-1">
-                        <select class="select form-control" placeholder="انتخاب مرحله">
+                        <select class="select form-control" placeholder="انتخاب مرحله" id="game-stage">
                             <option value="انتخاب مرحله" selected="selected" class="selected">انتخاب مرحله</option>
                             <option value="1">مرحله 1</option>
                             <option value="2">مرحله 2</option>
@@ -51,12 +51,12 @@
                         </select>
                     </div>
                     <div class="col-md-2 start">
-                        <button class="btn btn-primary btn-round ">
+                        <button class="btn btn-primary btn-round" onclick="startGame()">
                             شروع
                         </button>
                     </div>
                     <div class="col-md-2 end">
-                        <button class="btn btn-primary btn-round ">
+                        <button class="btn btn-primary btn-round" onclick="stopGame()">
                             پایان
                         </button>
                     </div>
@@ -126,14 +126,11 @@
     <script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/dropdown.js') }}"></script>
     <script src="{{ URL::to('assets/Material-Kit/assets/js/material-kit.js') }}"></script>
-
+    <script src="{{ URL::to('assets/js/admin_home.js') }}"></script>
     <script>
         $(function() {
             $(".select").dropdown({ "autoinit" : ".select" });
             $(".select").dropdown({ "dropdownClass": "my-dropdown", "optionClass": "my-option awesome" });
         });
-        function click(){
-            console.warn('You clicked me');
-        }
     </script>
 </html>

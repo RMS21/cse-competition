@@ -82,4 +82,15 @@ Route::group(['middleware' => 'auth'], function(){
     'uses' => 'AdminController@getTeamRanking',
     'as' => 'get_team_ranking'
   ]);
+
+  Route::get('/stop/game/{game_stage}', [
+    'uses' => "AdminController@getStopGame",
+    'as' => 'get_stop_game'
+  ]);
+
+  Route::get('/start/game/{game_stage}', [
+    'uses' => "AdminController@getStartGame",
+    'as' => 'get_start_game'
+  ]);
+
 });

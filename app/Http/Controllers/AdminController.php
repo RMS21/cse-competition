@@ -29,6 +29,54 @@ class AdminController extends Controller
       return view('admin.admin_home', ['review_requests' => $review_requests]);
     }
 
+    public function getStopGame($game_stage){
+      if(!Auth::check()){
+        return redirect()->route('get_team_login');
+      }
+      if(Auth::check()){
+        if(Auth::user()->role !== "admin"){
+          return redirect()->back();
+        }
+      }
+
+
+      if($game_stage > 4 || $game_stage < 1){
+        return response()->JSON(['fail' => 'invalid game stage']);
+      }
+
+      $game_status = new GameStatus();
+      $game_status->stage = $game_stage;
+      $game_status->is_started = 0;
+      $game_status->save();
+
+      return response()->JSON(['success' => 'game stoped']);
+
+    }
+
+
+    public function getStartGame($game_stage){
+      if(!Auth::check()){
+        return redirect()->route('get_team_login');
+      }
+      if(Auth::check()){
+        if(Auth::user()->role !== "admin"){
+          return redirect()->back();
+        }
+      }
+
+      if($game_stage > 4 || $game_stage < 1){
+        return response()->JSON(['fail' => 'invalid game stage']);
+      }
+
+      $game_status = new GameStatus();
+      $game_status->stage = $game_stage;
+      $game_status->is_started = 1;
+      $game_status->save();
+
+      return response()->JSON(['success' => 'game started']);
+    }
+
+
     public function getTeamRanking(){
       if(!Auth::check()){
         return redirect()->route('get_team_login');
@@ -41,4 +89,8 @@ class AdminController extends Controller
 
       return view('admin.ranking');
     }
+
+
+
+
 }
