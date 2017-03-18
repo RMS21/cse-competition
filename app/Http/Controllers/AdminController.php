@@ -81,9 +81,16 @@ class AdminController extends Controller
      return "success";
     }
 
-    public function getTeamRanking(){
+    public function getTeamRanking(Request $request){
       AdminController::AdminAuthentication();
-      return view('admin.ranking');
+
+      $teams = Team::where('role', '<>', "admin")->orderBy('score', 'DESC')->get();
+
+      if($request->ajax()){
+          return response()->JSON(['teams' => $teams]);
+      }
+
+      return view('admin.ranking', ['teams' => $teams]);
     }
 
 

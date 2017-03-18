@@ -47,13 +47,17 @@
 		                                    <th>سطح</th>
 		                                </tr>
 		                            </thead>
-		                            <tbody>
-		                                <tr>
-		                                    <td>1</td>
-		                                    <td>پاسارگارد</td>
-		                                    <td>6969</td>
-		                                    <td>2</td>
-                                        </tr>
+		                            <tbody id="table-body">
+                                  @php $counter = 1 @endphp
+                                  @foreach ($teams as $team)
+                                    <tr>
+                                      <td>{{ $counter }}</td>
+                                      <td>{{ $team->name }}</td>
+                                      <td>{{ $team->score }}</td>
+                                      <td>{{ $team->level }}</td>
+                                   </tr>
+                                   @php $counter += 1 @endphp
+                                  @endforeach
 		                            </tbody>
 		                        </table>
 		                        </div>
@@ -68,7 +72,8 @@
     <script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/dropdown.js') }}"></script>
     <script src="{{ URL::to('assets/Material-Kit/assets/js/material-kit.js') }}"></script>
-    <script>
+    <script src="{{ URL::to('assets/js/ranking.js') }}"></script>
+    <script type="text/javascript">
         $(function() {
             $(".select").dropdown({ "autoinit" : ".select" });
             $(".select").dropdown({ "dropdownClass": "my-dropdown", "optionClass": "my-option awesome" });
