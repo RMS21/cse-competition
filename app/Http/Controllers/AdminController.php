@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 use App\GameStatus;
 use App\ReviewRequest;
+use App\Problem;
+use App\Team;
 
 class AdminController extends Controller
 {
@@ -62,6 +64,14 @@ class AdminController extends Controller
 
     public function getAnswerProblem($team_id, $problem_id, $problem_answer){
       AdminController::AdminAuthentication();
+
+      //adding score to team if the answer is true
+      if($problem_answer == 2){
+        $problem_score = Problem::find($problem_id)->score;
+        $team_score = Team::find($team_id)->score;
+        $team_score += $problem_score;
+        Team::where('id', '=', $team_id)->update(['score' => $team_score]);
+      }
 
       ReviewRequest::where([
                             ['team_id', '=', $team_id],

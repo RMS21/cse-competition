@@ -53,3 +53,5 @@ function getReviewRequests() {
     $('#table-body').html(output);
   });
 }
+
+setInterval(getReviewRequests, 10000);

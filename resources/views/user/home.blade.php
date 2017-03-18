@@ -185,7 +185,7 @@
                 if(data.redirect === 1){
                   document.location.href = 'http://localhost:8000/home';
                 }
-                // alert(typeof data.redirect == 1);
+                $('#team-score').html(data.team_score);
               });
             }
 

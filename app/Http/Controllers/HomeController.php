@@ -42,7 +42,7 @@ class HomeController extends Controller
              return response()->JSON(['redirect' => 1]);
          }
 
-         return response()->JSON(['redirect' => 0]);
+         return response()->JSON(['redirect' => 0, 'team_score' => Auth::user()->score]);
       }
 
 }

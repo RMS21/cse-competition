@@ -32,7 +32,7 @@
                 <div class="col-md-2">
                     <div class="group-information">
                         <span class="group-property">امتیاز</span>
-                        <span class="value-property">{{ $team->score }}</span>
+                        <span class="value-property" id="team-score">{{ $team->score }}</span>
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -103,7 +103,7 @@
             if(data.redirect === 1){
               document.location.href = 'http://localhost:8000/home';
             }
-            // alert(typeof data.redirect == 1);
+            $('#team-score').html(data.team_score);
           });
         }
 

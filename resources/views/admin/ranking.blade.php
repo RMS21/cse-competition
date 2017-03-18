@@ -3,19 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../bootstrap-rtl/css/bootstrap.rtl.min.css">
-        <!--<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
-        <link rel="stylesheet" href="Material-Kit/assets/css/material-kit.css">
-        
-        <link rel="stylesheet" href="Material-Kit/assets/css/demo.css">
-        <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.css">
-        
+        <link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap-rtl.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('assets/Material-Kit/assets/css/material-kit.css') }}">
+
+        <link rel="stylesheet" href="{{ URL::to('assets/Material-Kit/assets/css/demo.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.css') }}">
+
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-        <link rel="stylesheet" href="assets/css/rank.css">
+        <link rel="stylesheet" href="{{ URL::to('assets/css/rank.css') }}">
 
         <title>مسابقه</title>
         <style>
-        
+
         </style>
     </head>
     <body>
@@ -64,15 +63,11 @@
                 </section>
         </div>
     </body>
-    <script src="Material-Kit/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="Material-Kit/assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="Material-Kit/assets/js/material.min.js"></script>
-    <script src="assets/js/dropdown.js"></script>
-    <script src="Material-Kit/assets/js/material-kit.js"></script>
-    <!--<script src="Material-Kit/assets/js/bootstrap-datepicker.js"></script>-->
-    <!--<script src="Material-Kit/assets/js/nouislider.js"></script>-->
-    <!--<script src="assets/js/tagsinput.js"></script>-->
-
+    <script src="{{ URL::to('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ URL::to('assets/Material-Kit/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL::to('assets/Material-Kit/assets/js/material.min.js') }}"></script>
+    <script src="{{ URL::to('assets/js/dropdown.js') }}"></script>
+    <script src="{{ URL::to('assets/Material-Kit/assets/js/material-kit.js') }}"></script>
     <script>
         $(function() {
             $(".select").dropdown({ "autoinit" : ".select" });

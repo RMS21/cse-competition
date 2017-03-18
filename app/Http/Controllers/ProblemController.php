@@ -21,12 +21,17 @@ class ProblemController extends Controller
 
       $problem = ProblemController::checkAuthorizationProblemControl($problem_id);
 
+      $team_score = Auth::user()->score - $problem->score;
+      if($team_score < 0){
+        return redirect()->back()->with(['fail' => 'پول کافی ندارید']);
+      }
+
+
       $new_buyed_problem = new BuyProblem();
       $new_buyed_problem->problem_id = $problem_id;
       $new_buyed_problem->team_id = Auth::user()->id;
       $new_buyed_problem->save();
 
-      $team_score = Auth::user()->score - $problem->score;
       Team::where('id', '=', Auth::user()->id)->update(['score' => $team_score]);
 
       return redirect()->route('get_show_problem', ['problem_id' => $problem_id]);
@@ -94,7 +99,7 @@ class ProblemController extends Controller
       $problems_status = DB::select($query);
 
 
-      return response()->JSON(['problems_status' => $problems_status, 'team_score' => Auth::user()->score]);
+      return response()->JSON(['problems_status' => $problems_status]);
 
     }
 
