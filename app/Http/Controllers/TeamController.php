@@ -24,7 +24,7 @@ class TeamController extends Controller{
     public function postTeamLogin(Request $request){
 
       $this->validate($request, [
-        'name' => 'required | alpha_dash',
+        'name' => 'required | alpha_spaces',
         'password' => ['required', 'min: 4' , 'max: 50', 'regex:  /^[a-zA-Z0-9!@#\$\^\&*\)\(._-]+$/' ]
       ]);
 
@@ -49,30 +49,30 @@ class TeamController extends Controller{
     public function postTeamRegister(Request $request){
 
         $this->validate($request, [
-        'team_name' => 'required | alpha_dash',
+        'team_name' => 'required | alpha_spaces',
         'password' => ['required', 'min: 4' , 'max: 50', 'regex:  /^[a-zA-Z0-9!@#\$\^\&*\)\(._-]+$/', 'confirmed' ],
         'password_confirmation' => ['required', 'min: 4' , 'max: 50', 'regex:  /^[a-zA-Z0-9!@#\$\^\&*\)\(._-]+$/'],
-        'fname_1' => 'required | alpha_dash',
-        'lname_1' => 'required | alpha_dash',
+        'fname_1' => 'required | alpha_spaces',
+        'lname_1' => 'required | alpha_spaces',
         'snumber_1' => 'required | numeric',
         'eyear_1' => 'required | numeric',
         'pnumber_1' => 'required | numeric',
         'email_1' => 'required | email',
-        'uname_1' => 'required | alpha_dash',
-        'fname_2' => 'required | alpha_dash',
-        'lname_2' => 'required | alpha_dash',
+        'uname_1' => 'required | alpha_spaces',
+        'fname_2' => 'required | alpha_spaces',
+        'lname_2' => 'required | alpha_spaces',
         'snumber_2' => 'required | numeric',
         'eyear_2' => 'required | numeric',
         'pnumber_2' => 'required | numeric',
         'email_2' => 'required | email',
-        'uname_2' => 'required | alpha_dash',
-        'fname_3' => 'required | alpha_dash',
-        'lname_3' => 'required | alpha_dash',
+        'uname_2' => 'required | alpha_sapces',
+        'fname_3' => 'required | alpha_spaces',
+        'lname_3' => 'required | alpha_spaces',
         'snumber_3' => 'required | numeric',
         'eyear_3' => 'required | numeric',
         'pnumber_3' => 'required | numeric',
         'email_3' => 'required | email',
-        'uname_3' => 'required | alpha_dash'
+        'uname_3' => 'required | alpha_spaces'
         ]);
 
 
@@ -101,9 +101,9 @@ class TeamController extends Controller{
 
 
         //checking if the team name exits
-        if(Team::where('name', $request->team_name)->first() !== null){
-            return redirect()->back()->with('fail', 'این نام تیم وجود دارد');
-        }
+        // if(Team::where('name', $request->team_name)->first() !== null){
+        //     return redirect()->back()->with('fail', 'این نام تیم وجود دارد');
+        // }
 
         // checking if the first/second/third person is already registerd
         if((User::where('first_name',$request->fname_1)->first() !== null) && (User::where('last_name', $request->lname_1)->first() !== null)){
