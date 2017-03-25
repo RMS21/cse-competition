@@ -12,7 +12,7 @@ class TeamController extends Controller{
     public function getTeamLogin(){
 
       if(Auth::check()){
-        if(Auth::user()->name == "admin"){
+        if(Auth::user()->role == "admin"){
           return redirect()->route('get_admin_home');
         }
         return redirect()->route('get_home');
@@ -33,7 +33,7 @@ class TeamController extends Controller{
       }
 
       //checking if the team is admin or not
-      $team = Team::where('name', '=', $request->name)->firstOrFail();
+      $team = Team::where('name', '=', $request->name)->first();
       if($team->role == "admin"){
         return redirect()->route('get_admin_home');
       }
@@ -101,9 +101,9 @@ class TeamController extends Controller{
 
 
         //checking if the team name exits
-        // if(Team::where('name', $request->team_name)->first() !== null){
-        //     return redirect()->back()->with('fail', 'این نام تیم وجود دارد');
-        // }
+        if(Team::where('name', $request->team_name)->first() !== null){
+            return redirect()->back()->with('fail', 'این نام تیم وجود دارد');
+        }
 
         // checking if the first/second/third person is already registerd
         if((User::where('first_name',$request->fname_1)->first() !== null) && (User::where('last_name', $request->lname_1)->first() !== null)){

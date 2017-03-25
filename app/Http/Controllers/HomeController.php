@@ -29,7 +29,7 @@ class HomeController extends Controller
       $is_game_started = is_null($last_game_status) ? null : $last_game_status->is_started;
 
       return view('user.home', ['team' => $team, 'team_members' => $team_members, 'game_stage' => $game_stage, 'problems' => $problems, 'is_game_started' => $is_game_started]);
-      }
+    }
 
       public function getLastGameStatus(Request $request){
          if(!Auth::check()){
