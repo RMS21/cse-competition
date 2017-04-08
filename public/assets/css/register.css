@@ -83,7 +83,6 @@ h1{
 .content p{
     text-align: center;
     margin-top: 25px;
-    color: #ff4d4d;
 }
 .personal-information{
     margin-bottom: 40px;
@@ -93,4 +92,11 @@ h1{
 }
 .material-icons{
     right:90%;
+}
+.name{
+    padding: 0;
+    padding-right: 13px;
+}
+.family{
+    padding-right: 4px;
 }

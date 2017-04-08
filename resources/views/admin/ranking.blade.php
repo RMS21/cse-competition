@@ -24,19 +24,16 @@
                     <img src="assets/img/logo1.png" alt="" style="height: 69px;">
                 </div>
                 <div class="name-contest">
-                    سمنسیتبمسنشتبمس
-                </div>
-                <div class="logout">
-                    <a href="#"><span class="glyphicon glyphicon-off"></span></a>
+                  مسابقه انجمن علمی
                 </div>
             </div>
             <section>
+              <div class="card card-signup">
+                    <div class="header header-info text-center">
+                        <h3>رتبه بندی</h3>
+                    </div>
+
                     <div id="tables">
-		                <div class="title">
-		                    <h3>رتبه بندی</h3>
-		                </div>
-		                    <div class="row">
-		                    <div class="col-md-8 col-md-offset-2">
 		                        <div class="table-responsive">
 		                        <table class="table">
 		                            <thead>
@@ -61,8 +58,6 @@
 		                            </tbody>
 		                        </table>
 		                        </div>
-		                    </div>
-		                    </div>
                     </div>
                 </section>
         </div>

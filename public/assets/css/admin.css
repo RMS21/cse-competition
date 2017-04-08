@@ -9,15 +9,14 @@ html{
 }
 body{
     background-color: #FAFAFA;
-    margin-bottom: 90px ;
 }
-*:not(.glyphicon){
+*{
     font-family: IRANSans ;
 }
 .navbar-admin{
     background-color:#7B1FA2;
     color: #fff;
-    height: 69px;
+    height: 69px ;
     direction: rtl;
     position: relative;
 }
@@ -47,8 +46,8 @@ body{
 .name-contest{
     position: absolute;
     display: inline;
-    right: 585px;
-    font-size: 23px;
+    right: 520px;
+    font-size: 27px;
     top:20px;
 }
 .logout{
@@ -64,39 +63,75 @@ body{
     margin-top: -2px;
 }
 .start {
-    text-align: center;
+    text-align: left;
 }
-.start > button , .end > button , .rank > a{
-    width: 120px;
-    font-size: 17px;
-    margin-top: 14px;
+.start > button , .end > button  {
+    width: 100px;
+    font-size: 15px;
     padding: 8px 0 ;
-    margin-top:22px;
 }
-
-.rank > a{
-    font-size: 14px;
+.rank{
+    padding-right: 40px;
+}
+.rank > a {
+    width:140px;
+    font-size: 15px;
+    padding: 8px 0 ;
+}
+select{
+    font-size: 18px !important;
 }
 .select-level{
     margin-top:50px;
+    font-size: 20px;
 }
-section{
-    margin: 100px 0 ;
-}
-.header-primary{
-    font-size: 16px;
+
+.header-info h3{
+    margin-right: 25px;
+    font-size: 26px;
+    margin: -4px;
+    margin-right: 25px;
 }
 .content div{
     font-size: 15px;
-    margin: 20px 0 ;
     font-weight: bold;
 }
 .radio{
     display: inline;
+    margin-left: 20px;
+}
+.title h3{
+    font-weight: bold ;
+    margin-right: 8.4% ;
+}
+.btn-lg{
+    padding:10px  !important;
+    font-size:16px !important;
+}
+.header-info{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top:-60px !important;
+}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+thead{
+    font-size: 16px;
+    font-style: bold !important;
+}
+section{
+    margin:75px 100px;
 }
 
-.btn-custom{
-  height: 25px !important;
-  width: 25px !important;
-  margin-right: 20px !important;
+.btn-success{
+  border: 1px solid green !important;
+  background: white !important;
+  color: green !important;
+}
+
+.btn-danger{
+  border: 1px solid red !important;
+  background: white !important;
+  color: red !important;
 }

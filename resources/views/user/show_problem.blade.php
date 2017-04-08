@@ -20,53 +20,70 @@
     <body>
         <div class="container-fluid">
             <div class="row navbar-information">
-                <div class="col-md-1 logo">
+                <div class="col-md-1 logo col-md-offset-1">
+                  <a href="{{ route('get_home') }}">
                     <img src="{{ URL::to('assets/img/logo1.png') }}" alt="logo">
+                  </a>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="group-information">
                         <span class="group-property">گروه</span>
                         <span class="value-property">{{ $team->name}}</span>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="group-information">
-                        <span class="group-property">امتیاز</span>
-                        <span class="value-property" id="team-score">{{ $team->score }}</span>
-                    </div>
-                </div>
+                <div class="col-md-5"></div>
                 <div class="col-md-1">
-                    <div class="group-information">
-                        <span class="group-property">سطح </span>
-                        <span class="value-property">{{ $team->level }}</span>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="group-information">
-                        <span class="group-property">تعداد اعضا</span>
-                        <span class="value-property">{{ $team_members }}</span>
-                    </div>
-                </div>
-                <div class="col-md-1 col-md-offset-2">
                     <a href="{{ route('get_team_logout') }}">
                         <span class="glyphicon glyphicon-off"></span>
                     </a>
                 </div>
             </div>
+            <div class="bs-component">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="group-information">
+                                    <span class="group-property">امتیاز</span>
+                                    <span class="value-property" id="team-score">{{ $team->score }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="group-information">
+                                    <span class="group-property">سطح </span>
+                                    <span class="value-property">{{ $team->level }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="group-information">
+                                    <span class="group-property">تعداد اعضا</span>
+                                    <span class="value-property">{{ $team_members }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
             <div class="container question">
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
                         <div class="card card-signup">
                                 <div class="header header-primary text-center">
-                                    <h1>{{ $problem->title }}</h1>
-                                    <h2>
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                     <h3>{{ $problem->title }}</h3>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <h3>
                                         <span>امتیاز :</span>
                                         <span>{{ $problem->score }}</span>
-                                    </h2>
-                                    <h3>
+                                      </h3>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <h3>
                                         <span>سطح :</span>
                                         <span>{{ $problem->level }}</span>
-                                    </h3>
+                                      </h3>
+                                    </div>
+                                  </div>
                                 </div>
                                 <div class="content">
                                     <p>
@@ -76,11 +93,10 @@
                                 </div>
                                 <hr>
                                 <div class="decision">
-                                    <a href="{{ route('get_review_request_problem', ['problem_id' => $problem->id]) }}" class="btn btn-primary">در خواست بازبینی</a>
-                                    <a href="{{ route('get_cancel_problem', ['problem_id' => $problem->id]) }}" class="btn btn-primary">انصراف</a>
+                                    <a href="{{ route('get_review_request_problem', ['problem_id' => $problem->id]) }}" class="btn btn-success">در خواست بازبینی</a>
+                                    <a href="{{ route('get_cancel_problem', ['problem_id' => $problem->id]) }}" class="btn btn-danger">انصراف</a>
                                 </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

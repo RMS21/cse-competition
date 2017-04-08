@@ -41,11 +41,11 @@ function getReviewRequests() {
                     <td>${ req.team_name }</td>
                     <td>${ req.stage }</td>
                     <td>
-                      <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-xs btn-custom" onclick="answer(${req.team_id}, ${req.problem_id}, 2)">
-                        <i class="glyphicon glyphicon-ok"></i>
+                      <button class="btn btn-success" onclick="answer(${req.team_id}, ${req.problem_id}, 2)">
+                        درست
                       </button>
-                    <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-xs btn-custom" onclick="answer(${req.team_id}, ${req.problem_id}, 3)">
-                        <i class="glyphicon glyphicon-remove"></i>
+                    <button class="btn btn-danger" onclick="answer(${req.team_id}, ${req.problem_id}, 3)">
+                      غلط
                       </button>
                     </td>
                 </tr>`

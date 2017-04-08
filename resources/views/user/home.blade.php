@@ -29,37 +29,48 @@
     <body>
         <div class="container-fluid">
             <div class="row navbar-information">
-                <div class="col-md-1 logo">
-                    <img src="{{ URL::to('assets/img/logo1.png') }}" alt="logo">
+                <div class="col-md-1 col-md-offset-1 logo">
+                    <a href="#">
+                      <img src="{{ URL::to('assets/img/logo1.png') }}" alt="logo">
+                    </a>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="group-information">
                         <span class="group-property">گروه</span>
                         <span class="value-property">{{ $team->name}}</span>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="group-information">
-                        <span class="group-property">امتیاز</span>
-                        <span class="value-property" id="team-score">{{ $team->score }}</span>
-                    </div>
-                </div>
+                <div class="col-md-5"></div>
                 <div class="col-md-1">
-                    <div class="group-information">
-                        <span class="group-property">سطح </span>
-                        <span class="value-property">{{ $team->level }}</span>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="group-information">
-                        <span class="group-property">تعداد اعضا</span>
-                        <span class="value-property">{{ $team_members }}</span>
-                    </div>
-                </div>
-                <div class="col-md-1 col-md-offset-2">
                     <a href="{{ route('get_team_logout') }}">
                         <span class="glyphicon glyphicon-off"></span>
                     </a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="bs-component">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="group-information">
+                                  <span class="group-property">امتیاز</span>
+                                  <span class="value-property" id="team-score">{{ $team->score }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="group-information">
+                                    <span class="group-property">سطح </span>
+                                    <span class="value-property">{{ $team->level }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="group-information">
+                                    <span class="group-property">تعداد اعضا</span>
+                                    <span class="value-property">{{ $team_members }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             @if($is_game_started)
@@ -112,7 +123,7 @@
               @foreach ($problems as $problem)
                 @if(abs(ord($problem->level) - ord($team->level) <= 2))
                   <div class="col-md-3">
-                      <div class="card">
+                      <div class="card card-signup">
                           <div class="form buy-question">
                               <div class="header header-primary text-center">
                                   <span>{{ $problem->title }}</span>
@@ -133,20 +144,24 @@
                                         $problem_state = is_null($problem_state) ? 0 : $problem_state->state;
                                       @endphp
                                       @if($problem_state == 0)
-                                        <span>‍پاسخ داده نشده</span>
-                                        <i class="glyphicon glyphicon-pencil"></i>
+                                        <span class="rose">‍پاسخ داده نشده
+                                          <i class="glyphicon glyphicon-pencil"></i>
+                                        </span>
                                       @endif
                                       @if($problem_state == 1)
-                                        <span id="stateText-{{ $problem->id }}">در حال بررسی</span>
-                                        <i class="glyphicon glyphicon-retweet" id="stateGlyphicon-{{ $problem->id }}"></i>
+                                        <span class="warning" id="stateText-{{ $problem->id }}">در حال بررسی
+                                         <i class="glyphicon glyphicon-retweet" id="stateGlyphicon-{{ $problem->id }}"></i>
+                                        </span>
                                       @endif
                                       @if($problem_state == 2)
-                                        <span>درست</span>
-                                        <i class="glyphicon glyphicon-ok"></i>
+                                        <span class="success">درست
+                                          <i class="glyphicon glyphicon-ok"></i>
+                                        </span>
                                       @endif
                                       @if($problem_state == 3)
-                                        <span>غلط</span>
-                                        <i class="glyphicon glyphicon-remove"></i>
+                                        <span class="danger">غلط
+                                          <i class="glyphicon glyphicon-remove"></i>
+                                        </span>
                                       @endif
                                   </div>
                               </div>

@@ -14,10 +14,6 @@
         <link rel="stylesheet" href="{{ URL::to('assets/css/admin.css') }}">
 
         <title>مسابقه</title>
-        <style>
-
-        </style>
-
     </head>
     <body>
         <div class="container-fluid">
@@ -32,7 +28,7 @@
                     </a>
                 </div>
                 <div class="name-contest">
-                    سمنسیتبمسنشتبمس
+                  مسابقه انجمن علمی
                 </div>
                 <div class="logout">
                     <a href="{{ route('get_team_logout') }}"><span class="glyphicon glyphicon-off"></span></a>
@@ -42,7 +38,7 @@
 
                 <div class="row select-level">
                     <div class="col-md-2 col-md-offset-1">
-                        <select class="select form-control" placeholder="انتخاب مرحله" id="game-stage">
+                        <select class="select btn btn-raised btn-primary btn-round btn-lg" placeholder="انتخاب مرحله">
                             <option value="انتخاب مرحله" selected="selected" class="selected">انتخاب مرحله</option>
                             <option value="1">مرحله 1</option>
                             <option value="2">مرحله 2</option>
@@ -50,30 +46,30 @@
                             <option value="4">مرحله 4</option>
                         </select>
                     </div>
-                    <div class="col-md-2 start">
+                    <div class="col-md-1 start">
                         <button class="btn btn-primary btn-round" onclick="startGame()">
                             شروع
                         </button>
                     </div>
-                    <div class="col-md-2 end">
+                    <div class="col-md-1 end">
                         <button class="btn btn-primary btn-round" onclick="stopGame()">
                             پایان
                         </button>
                     </div>
-                    <div class="col-md-2 col-md-offset-3 rank">
+                    <div class="col-md-3 col-md-offset-4 rank">
                         <a class="btn btn-primary btn-round" href="{{ route('get_team_ranking') }}">
                             رتبه بندی تیم ها
                         </a>
                     </div>
                 </div>
                 <section>
-                    <div id="tables">
-		                <div class="title">
-		                    <h3>درخواست های بازبینی</h3>
-		                </div>
-		                    <div class="row">
-		                    <div class="col-md-8 col-md-offset-2">
-		                        <div class="table-responsive">
+                  <div class="card card-signup">
+                    <div class="header header-info">
+                      <h3>در خواست های بازبینی</h3>
+                    </div>
+                    <div class="content">
+                      <div id="tables">
+		                     <div class="table-responsive">
 		                        <table class="table">
 		                            <thead>
 		                                <tr>
@@ -93,12 +89,12 @@
                                           <td>{{ $req->problem_title }}</td>
                                           <td>{{ $req->team_name }}</td>
                                           <td>{{ $req->stage }}</td>
-  		                                    <td>
-                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-xs btn-custom" onclick="answer({{$req->team_id}}, {{$req->problem_id}}, {{ 2 }})">
-                                              <i class="glyphicon glyphicon-ok"></i>
+  		                                    <td class="review">
+                                            <button class="btn btn-success" onclick="answer({{$req->team_id}}, {{$req->problem_id}}, {{ 2 }})">
+                                              درست
                                             </button>
-                                          <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-xs btn-custom" onclick="answer({{$req->team_id}}, {{$req->problem_id}}, {{ 3 }})">
-                                              <i class="glyphicon glyphicon-remove"></i>
+                                          <button class="btn btn-danger" onclick="answer({{$req->team_id}}, {{$req->problem_id}}, {{ 3 }})">
+                                              غلط
                                             </button>
                                           </td>
                                       </tr>
@@ -107,9 +103,9 @@
                                   @endif
 		                            </tbody>
 		                        </table>
-		                        </div>
+		                      </div>
 		                    </div>
-		                    </div>
+                      </div>
                     </div>
                 </section>
             </div>

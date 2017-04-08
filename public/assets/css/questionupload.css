@@ -46,18 +46,25 @@ body{
     color: #fff;
     margin-top: -2px;
 }
-.title h3 {
-    font-size: 23px !important;
-    font-weight: bold !important;
-    margin-right: 8.3%;
-} 
-th {
-    font-size: 20px !important;
-    font-weight: bold !important;
+.btn-success{
+    color:green !important;
+    border: 1px solid green !important;   
 }
-td{
-    font-size: 20px !important;
-    /*font-weight: bold !important;    */
+.btn-danger{
+    color:#f44336 !important;
+    border:1px solid #f44336 !important;
+}
+input[type="submit"]{
+    border-radius: 10px !important;
+    background-color: #fff !important;
+    color:#fff;
+    transition: 0.69s;
+    width: 150px !important;
+    margin-right:10px;
+    background-image:linear-gradient(#fff,#fff) !important;
+}
+input[type="submit"]:first-child{
+    margin-right: 50px;
 }
 .header-info{
     margin-left: 0 !important;
@@ -65,13 +72,23 @@ td{
     margin-top:-60px !important;
 }
 section{
-    margin:100px 100px;
+    margin:100px 150px;
 }
 h3{
     margin:-4px;
-    font-size: 28px !important;
+    font-size: 25px !important;
     font-weight: bold !important;
+    margin-right: 20px;
 }
-tr:nth-child(even){
-    background-color: #f2f2f2;
+label.control-label{
+    right:0;
+}
+form > .form-group{
+    margin-top:0;
+}
+.content{
+    margin:25px;
+}
+.content #file-uploader{
+    margin: auto;
 }

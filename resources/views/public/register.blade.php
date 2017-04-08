@@ -81,9 +81,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 family">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><img src="assets/img/name.png" alt=""></span>
                                                 <div class="form-group label-floating has-error">
                                                     <input type="text" class="form-control" placeholder="نام خانوادگی" name="lname_1" value="{{ old('lname_1') }}">
                                                     <span class="material-input"></span>
@@ -137,7 +136,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><img src="assets/img/phonenumber.png" alt=""></span>
                                                 <div class="form-group label-floating has-error">
-                                                    <input type="text" class="form-control" placeholder="شماره تلفن" name="pnumber_1" value="{{ old('pnumber_1') }}">
+                                                    <input type="text" class="form-control" placeholder="0910xxxxxxx" name="pnumber_1" value="{{ old('pnumber_1') }}">
                                                     <span class="material-input"></span>
                                                     @if($errors->has('pnumber_1'))
                                                        <span class="material-icons form-control-feedback">clear</span>
@@ -173,9 +172,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 family">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><img src="assets/img/name.png" alt=""></span>
                                                 <div class="form-group label-floating has-error">
                                                     <input type="text" class="form-control" placeholder="نام خانوادگی" name="lname_2" value="{{ old('lname_2') }}">
                                                     <span class="material-input"></span>
@@ -229,7 +227,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><img src="assets/img/phonenumber.png" alt=""></span>
                                                 <div class="form-group label-floating has-error">
-                                                    <input type="text" class="form-control" placeholder="شماره تلفن" name="pnumber_2" value="{{ old('pnumber_2') }}">
+                                                    <input type="text" class="form-control" placeholder="0910xxxxxxx" name="pnumber_2" value="{{ old('pnumber_2') }}">
                                                     <span class="material-input"></span>
                                                     @if($errors->has('pnumber_2'))
                                                        <span class="material-icons form-control-feedback">clear</span>
@@ -265,9 +263,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 family">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><img src="assets/img/name.png" alt=""></span>
                                                 <div class="form-group label-floating has-error">
                                                     <input type="text" class="form-control" placeholder="نام خانوادگی" name="lname_3" value="{{ old('lname_3') }}">
                                                     <span class="material-input"></span>
@@ -321,7 +318,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><img src="assets/img/phonenumber.png" alt=""></span>
                                                 <div class="form-group label-floating has-error">
-                                                    <input type="text" class="form-control" placeholder="شماره تلفن" name="pnumber_3" value="{{ old('pnumber_3') }}">
+                                                    <input type="text" class="form-control" placeholder="0910xxxxxxx" name="pnumber_3" value="{{ old('pnumber_3') }}">
                                                     <span class="material-input"></span>
                                                     @if($errors->has('pnumber_3'))
                                                        <span class="material-icons form-control-feedback">clear</span>
