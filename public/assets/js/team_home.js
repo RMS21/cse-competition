@@ -11,12 +11,12 @@ $(document).ready(function() {
         data.problems_status.forEach(function(o){
           if(o.state !== 1){
             if(o.state === 2){
-              $('#stateGlyphicon-'+o.id).removeClass('glyphicon-retweet').addClass('glyphicon-ok');
-              $('#stateText-'+o.id).html('درست');
+              var output = 'درست <i class="glyphicon glyphicon-ok"></i>'
+              $('#stateText-'+o.id).removeClass('warning').addClass('success').html(output);
             }
             if(o.state === 3){
-              $('#stateGlyphicon-'+o.id).removeClass('glyphicon-retweet').addClass('glyphicon-remove')
-              $('#stateText-'+o.id).html('غلط');
+              var output = 'غلط <i class="glyphicon glyphicon-ok"></i>'
+              $('#stateText-'+o.id).removeClass('warning').addClass('danger').html(output);
             }
           }
         });

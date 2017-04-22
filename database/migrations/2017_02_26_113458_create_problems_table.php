@@ -16,7 +16,7 @@ class CreateProblemsTable extends Migration
         Schema::create('problems', function (Blueprint $table) {
           $table->increments('id');
           $table->string('title');
-          $table->mediumText('description');
+          $table->mediumText('description')->nullable();
           $table->string('image_path')->nullable();
           $table->char('level', 1);
           $table->unsignedTinyInteger('stage');

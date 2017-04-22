@@ -31,7 +31,7 @@
                                         <div class="input-group">
                                             <span class="input-group-addon"><img src="assets/img/glyphicons-group.png" alt=""></span>
                                             <div class="form-group label-floating has-error">
-                                                <input  type="text" class="form-control" placeholder="نام گروه" name="team_name" value=" {{ old('team_name')}}">
+                                                <input  type="text" class="form-control"  placeholder="نام گروه" name="team_name" value="{{ old('team_name') }}">
                                                 <span class="material-input"></span>
                                                 @if($errors->has('team_name'))
                                                     <span class="material-icons form-control-feedback">clear</span>

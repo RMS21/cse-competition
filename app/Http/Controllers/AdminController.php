@@ -94,16 +94,55 @@ class AdminController extends Controller
     }
 
 
+    public function getMakeQuestion(){
+      AdminController::AdminAuthentication();
+      return view('admin.make_question');
+    }
+
+    public function postMakeQuestion(Request $request){
+
+      AdminController::AdminAuthentication();
+
+      $this->validate( $request, [
+        'title' => 'alpha_spaces | required',
+        'score' => 'numeric | required',
+        'stage' => 'numeric | required',
+        'level' => 'alpha | required',
+        'image' => 'image',
+      ]);
+
+
+      $problem = new Problem();
+      $problem->title = $request->title;
+      if(!is_null($request->description)){
+        $problem->description = $request->description;
+      }
+      if(!is_null($request->image)){
+        $image = $request->image;
+        $last_problem_id = DB::table('problems')->max('id');
+        $last_problem_id += 1;
+        $dir = 'uploads/img/problem/';
+        $image_name = $last_problem_id .'.'. $image->getClientOriginalExtension();
+        $request->image->move($dir, $image_name);
+        $problem->image_path = $dir.''. $image_name;
+      }
+      $problem->level = $request->level;
+      $problem->stage = $request->stage;
+      $problem->score = $request->score;
+      $problem->save();
+
+      return redirect()->route('get_admin_home');
+
+    }
+
     private function AdminAuthentication(){
       if(!Auth::check()){
         return redirect()->route('get_team_login');
       }
       if(Auth::check()){
         if(Auth::user()->role !== "admin"){
-          return redirect()->route('get_team_login');
+          return redirect()->back();
         }
       }
     }
-
-
 }

@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{{ URL::to('assets/Material-Kit/assets/css/demo.css') }}">
         <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.css') }}">
 
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="{{ URL::to('assets/css/google-fonts.css') }}" />
         <link rel="stylesheet" href="{{ URL::to('assets/css/rank.css') }}">
 
         <title>مسابقه</title>
@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row navbar-admin">
                 <div class="logo">
-                    <img src="assets/img/logo1.png" alt="" style="height: 69px;">
+                    <img src="{{ URL::to('assets/img/logo1.png') }}" style="height: 69px;">
                 </div>
                 <div class="name-contest">
                   مسابقه انجمن علمی

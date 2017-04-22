@@ -7,15 +7,12 @@
         <link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap-rtl.min.css') }}">
 
         <link rel="stylesheet" href="{{ URL::to('assets/Material-Kit/assets/css/material-kit.css') }}">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="{{ URL::to('assets/css/google-fonts.css') }}" />
         <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.css') }}">
         <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ URL::to('assets/css/home.css') }}">
         <link rel="stylesheet" href="{{ URL::to('assets/css/question.css') }}">
         <title>مسابقه</title>
-        <style>
-
-        </style>
     </head>
     <body>
         <div class="container-fluid">
@@ -86,10 +83,14 @@
                                   </div>
                                 </div>
                                 <div class="content">
-                                    <p>
-                                        {{ $problem->description }}
-                                    </p>
-                                    <!--<img src="assets/img/logo.png" alt="">-->
+                                    @if(is_null($problem->image_path))
+                                      <p>
+                                          {{ $problem->description }}
+                                      </p>
+                                    @endif
+                                     @if(!is_null($problem->image_path))
+                                     <img src="{{ URL::to($problem->image_path . '') }}" alt="">
+                                    @endif
                                 </div>
                                 <hr>
                                 <div class="decision">

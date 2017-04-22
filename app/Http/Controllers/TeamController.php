@@ -65,7 +65,7 @@ class TeamController extends Controller{
         'eyear_2' => 'required | numeric',
         'pnumber_2' => 'required | numeric',
         'email_2' => 'required | email',
-        'uname_2' => 'required | alpha_sapces',
+        'uname_2' => 'required | alpha_spaces',
         'fname_3' => 'required | alpha_spaces',
         'lname_3' => 'required | alpha_spaces',
         'snumber_3' => 'required | numeric',
@@ -87,7 +87,7 @@ class TeamController extends Controller{
         }
 
         //checking for entered student number
-        if(($request->snumber_1 == $request->snumber_2) || ($request->snumber_1 == $request->snumber_3) || ($request->snumber_2 == $request->snumber_2)){
+        if(($request->snumber_1 == $request->snumber_2) || ($request->snumber_1 == $request->snumber_3) || ($request->snumber_2 == $request->snumber_3)){
           return redirect()->back()->with('fail', 'شماره دانشجویی های یکسان وارد شده');
         }
 
@@ -154,7 +154,7 @@ class TeamController extends Controller{
         $level = $level <= 93 ? 'A' : ( $level == 94 ? 'B' : 'C');
         $team->level = $level;
         $team->role = "member";
-        $team->score = 300;
+        $team->score = 300;   //Change the socre
         $team->password =  bcrypt($request->password);
         $team->save();
 

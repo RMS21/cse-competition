@@ -98,4 +98,14 @@ Route::group(['middleware' => 'auth'], function(){
 
   ]);
 
+  Route::get('/admin/make/question', [
+    'uses' => 'AdminController@getMakeQuestion',
+    'as' => 'get_make_question'
+  ]);
+
+  Route::post('/admin/make/question', [
+    'uses' => 'AdminController@postMakeQuestion',
+    'as' => 'post_make_question'
+  ]);
+
 });

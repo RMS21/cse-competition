@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.min.css') }}">
 
         <link rel="stylesheet" href="{{ URL::to('assets/Material-Kit/assets/css/material-kit.css')}} ">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="{{ URL::to('assets/css/google-fonts.css') }}" />
         <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.css') }}">
 
         @if($is_game_started)
@@ -150,7 +150,7 @@
                                       @endif
                                       @if($problem_state == 1)
                                         <span class="warning" id="stateText-{{ $problem->id }}">در حال بررسی
-                                         <i class="glyphicon glyphicon-retweet" id="stateGlyphicon-{{ $problem->id }}"></i>
+                                         <i class="glyphicon glyphicon-retweet"></i>
                                         </span>
                                       @endif
                                       @if($problem_state == 2)

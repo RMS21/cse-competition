@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{{ URL::to('assets/Material-Kit/assets/css/demo.css') }}">
         <link rel="stylesheet" href="{{ URL::to('assets/fonts/font-awesome/css/font-awesome.css') }}">
 
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="{{ URL::to('assets/css/google-fonts.css') }}" />
         <link rel="stylesheet" href="{{ URL::to('assets/css/admin.css') }}">
 
         <title>مسابقه</title>
@@ -19,10 +19,12 @@
         <div class="container-fluid">
             <div class="row navbar-admin">
                 <div class="logo">
+                  <a href="#">
                     <img src="{{ URL::to('assets/img/logo1.png') }}" alt="" style="height: 69px;">
+                  </a>
                 </div>
                 <div class="question">
-                    <a href="#">
+                    <a href="{{ route('get_make_question') }}">
                         <span>طرح سوال</span>
                         <img src="{{ URL::to('assets/img/question.png') }}" alt="" height="40px;">
                     </a>
@@ -38,7 +40,7 @@
 
                 <div class="row select-level">
                     <div class="col-md-2 col-md-offset-1">
-                        <select class="select btn btn-raised btn-primary btn-round btn-lg" placeholder="انتخاب مرحله">
+                        <select class="select btn btn-raised btn-primary btn-round btn-lg" placeholder="انتخاب مرحله" id="game-stage">
                             <option value="انتخاب مرحله" selected="selected" class="selected">انتخاب مرحله</option>
                             <option value="1">مرحله 1</option>
                             <option value="2">مرحله 2</option>
